@@ -56,7 +56,7 @@ require_once("cabecalho.php");
 									Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Quem num gosta di mim que vai caçá sua turmis!
 								</p>
 								<p>
-									<a class="btn btn-primary" href="cadastrofornecedor.php">Cadastre-se</a> 
+									<a class="btn btn-primary" href="fornecedorCadastro.php">Cadastre-se</a> 
 							</div>
 						</div>
 					</div>

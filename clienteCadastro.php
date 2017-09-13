@@ -1,28 +1,29 @@
 <?php 
 require_once("cabecalho.php");
-require_once("controller/fornecedorController.php");
+require_once("controller/clienteController.php");
 require_once("controller/loginController.php");
-require_once("model/Fornecedor.php");
+require_once("model/Cliente.php");
 require_once("model/Login.php");
 
-$razao_social = $_POST['razao_social'];
-$cnpj = $_POST['cnpj'];
+$nome = $_POST['nome'];
+$cpf = $_POST['cpf'];
 $telefone = $_POST['telefone'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-$nivel_acesso = 'fornecedor';
-$fornecedor = new Fornecedor($razao_social,$cnpj,$email, $telefone);
+$nivel_acesso = 'cliente';
+echo $nome;
+$cliente = new Cliente($nome,$cpf,$email, $telefone);
 $login = new login ($email, $senha, $nivel_acesso);
 
 
 
-if(insereFornecedor($conexao, $fornecedor)) { ?>
-	<p class="text-success">O fornecedor <?= $fornecedor->getRazaoSocial() ?>, <?= $fornecedor->getCnpj() ?> foi adicionado.</p>
+if(insereCliente($conexao, $cliente)) { ?>
+	<p class="text-success">O cliente <?= $cliente->getNome() ?>, <?= $cliente->getCpf() ?> foi adicionado.</p>
 <?php 
 } else {
 	$msg = mysqli_error($conexao);
 ?>
-	<p class="text-danger">O produto <?= $fornecedor->getRazaoSocial() ?> não foi adicionado: <?= $msg?></p>
+	<p class="text-danger">O produto <?= $produto->getNome() ?> não foi adicionado: <?= $msg?></p>
 <?php
 }
 
@@ -37,7 +38,7 @@ if(insereLogin($conexao, $login)) { ?>
 <?php
 }
 
-header("location:Login.php?id=1");
+//header("location:Login.php?id=1");
 ?>
 
 

@@ -49,33 +49,15 @@ error_reporting(E_ALL ^ E_NOTICE);
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	          	<li><a href="index.php">Home</a></li>
-	          	<li><a href="inscrevase.php">Minhas cestas</a></li>
-	          	<li><a href="inscrevase.php">Produtos</a></li>
-	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="">
-	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
-					<ul class="dropdown-menu" aria-labelledby="entrar">
-						<div class="col-md-12">
-				    		<p>Você possui uma conta?</h3>
-				    		<br />
-							<form method="post" action="Autenticacao.php" id="formLogin">
-								<div class="form-group">
-									<input type="text" class="form-control" id="email" name="email" placeholder="Email" />
-								</div>
-								
-								<div class="form-group">
-									<input type="password" class="form-control red" id="senha" name="senha" placeholder="Senha" />
-								</div>
-								
-								<button type="buttom" class="btn btn-primary" id="btn_login">Entrar</button>
 
-								<br /><br />
-								
-							</form>
-						</form>
-				  	</ul>
-	            </li>
+	          	<li><a href="#">Home</a></li>
+	          	<li><a href="#">Cadastrar Produtos</a></li>
+	          	<li><a href="#">Percentual de Lucro</a></li>
+	          	<li><a href="#">Vendas Realizadas</a></li>
+	          	<li><a href="#">Fornecedores Cadastrados</a></li>
+	          	<li><a href="#">Clientes Cadastrados</a></li>
+	          	<li><a href="index.php">Sair</a></li>
+	            
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>
