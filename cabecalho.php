@@ -6,7 +6,10 @@ function carregaClasse($nomeDaClasse) {
 
 spl_autoload_register("carregaClasse");
 
-error_reporting(E_ALL ^ E_NOTICE);  ?>
+error_reporting(E_ALL ^ E_NOTICE);  
+
+
+?>
 
 
 <!DOCTYPE HTML>

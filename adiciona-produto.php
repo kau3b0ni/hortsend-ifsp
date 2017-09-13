@@ -1,10 +1,23 @@
 <?php 
 require_once("cabecalho.php");
+require_once("controller/produtoController.php");
 
-$produtoDao = new ProdutoDao($conexao);
+require_once("model/Produto.php");
 
-if($produtoDao->insereProduto($produto)) { ?>
-	<p class="text-success">O produto <?= $produto->getNome() ?> foi adicionado.</p>
+
+
+
+$nome = $_POST['nome'];
+$preco_custo = $_POST['preco-custo'];
+$preco_venda = $_POST['preco-venda'];
+$unidade = $_POST['unidade'];
+
+
+
+$produto = new Produto($nome, $preco_custo, $preco_venda, $unidade);
+
+if(insereProduto($conexao, $produto)) { ?>
+	<p class="text-success">O produto <?= $produto->getNome() ?>, <?= $produto->getPrecoVenda() ?> foi adicionado.</p>
 <?php 
 } else {
 	$msg = mysqli_error($conexao);
