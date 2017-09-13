@@ -1,5 +1,5 @@
 <?php
-require_once("cabecalho.php");
+require_once("cabecalhoAdministrador.php");
 require_once("controller/produtoController.php");
 require_once("model/Produto.php");
 
@@ -21,6 +21,7 @@ if(alteraProduto($conexao, $produto)) { ?>
 	<p class="text-danger">O produto <?= $produto->getNome() ?> não foi alterado: <?= $msg?></p>
 <?php
 }
+header('location:produto-lista.php?id=2');
 ?>
 
 <?php include("rodape.php"); ?>

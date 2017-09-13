@@ -10,4 +10,11 @@ function insereAdministrador($conexao, Administrador $administrador) {
 	return mysqli_query($conexao, $query);
 }
 
+function buscaAdministrador($conexao, $email) {
+
+	$query = "select * from administrador where email = '$email'";
+	
+	return mysqli_query($conexao, $query);
+}
+
 ?>

@@ -10,38 +10,52 @@ function insereLogin($conexao, Login $login) {
 	return mysqli_query($conexao, $query);
 }
 
-function loginSistema($conexao, $email, $senha){
+		
+function buscaUsuario($conexao, $email, $senha) {
+	
+	$email = mysqli_real_escape_string($conexao, $email);
+	$query = "select * from login where email='{$email}' and senha='{$senha}'";
+	$resultado = mysqli_query($conexao, $query);
+	$usuario = mysqli_fetch_assoc($resultado);
+	return $usuario;
+}
+
+function Usuario($conexao, $email, $senha){
 	
 	$query = "select * from login where email = '$email' and senha = '$senha'";
  	
 	$resultado = mysqli_query($conexao, $query);
 	$linhas = mysqli_num_rows($resultado); 
 	if($linhas<=0){
-		
-		header('location:login.php?id=2');
+		return 0;
+		//header('location:login.php?id=2');
 	} else {
-		
+
+		//cliente
 		$query = "select * from cliente where email = '$email'";
-		
 		$resultado = mysqli_query($conexao,$query);
 		$linhas = mysqli_num_rows($resultado); 
 		if(!$linhas<=0){
-			$id = 2;
-			header('location:paginaCliente.php?');
+			return 1;
 		}
+
+		//fornecedor
 		$query = "select * from fornecedor where email = '$email'";
 		$resultado = mysqli_query($conexao, $query);
 		$linhas = mysqli_num_rows($resultado); 
 		if(!$linhas<=0){
-			$id = 2;
-			header('location:paginaFornecedor.php?');
+			return 2;
 		}
+
+
+		//administrador
 		$query = "select * from administrador where email = '$email'";
 		$resultado = mysqli_query($conexao, $query);
 		$linhas = mysqli_num_rows($resultado); 
 		if(!$linhas<=0){
-			$id = 2;
-			header('location:paginaAdministrador.php?');
+			
+			return 3;
+			//header('location:paginaAdministrador.php?');
 		}
 	}
 

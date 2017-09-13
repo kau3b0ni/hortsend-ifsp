@@ -1,12 +1,17 @@
 <?php 
-
+require_once("controller/administradorController.php");
+require_once("controller/logicaUsuario.php");
 function carregaClasse($nomeDaClasse) {
 	require_once("class/".$nomeDaClasse.".php");
 }
 
 spl_autoload_register("carregaClasse");
 
-error_reporting(E_ALL ^ E_NOTICE);  
+error_reporting(E_ALL ^ E_NOTICE); 
+
+if(!usuarioEstaLogado()){
+	header('location:Login.php?id=2');
+}
 
 
 ?>
@@ -51,12 +56,12 @@ error_reporting(E_ALL ^ E_NOTICE);
 	          <ul class="nav navbar-nav navbar-right">
 
 	          	<li><a href="#">Home</a></li>
-	          	<li><a href="#">Cadastrar Produtos</a></li>
-	          	<li><a href="#">Percentual de Lucro</a></li>
+	          	<li><a href="produto-lista.php">Produtos</a></li>
+	          	<li><a href="percentual-formulario.php">Percentual de Lucro</a></li>
 	          	<li><a href="#">Vendas Realizadas</a></li>
 	          	<li><a href="#">Fornecedores Cadastrados</a></li>
 	          	<li><a href="#">Clientes Cadastrados</a></li>
-	          	<li><a href="index.php">Sair</a></li>
+	          	<li><a href="sessao-sair.php">Sair</a></li>
 	            
 	          </ul>
 	        </div><!--/.nav-collapse -->

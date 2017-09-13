@@ -1,5 +1,5 @@
 <?php 
-require_once("cabecalho.php");
+require_once("cabecalhoAdministrador.php");
 require_once("controller/produtoController.php");
 
 require_once("model/Produto.php");
@@ -25,6 +25,8 @@ if(insereProduto($conexao, $produto)) { ?>
 	<p class="text-danger">O produto <?= $produto->getNome() ?> não foi adicionado: <?= $msg?></p>
 <?php
 }
+header('location:produto-lista.php?id=1')
 ?>
+
 
 <?php include("rodape.php"); ?>

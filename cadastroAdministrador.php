@@ -5,11 +5,15 @@ require_once("controller/loginController.php");
 require_once("model/Administrador.php");
 require_once("model/Login.php");
 
+session_start();
+
 $matricula = $_POST['matricula'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $nivel_acesso = 'administrador';
+
+
 $administrador = new Administrador($matricula,$nome,$email);
 $login = new login ($email, $senha, $nivel_acesso);
 

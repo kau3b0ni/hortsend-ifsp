@@ -38,7 +38,7 @@ if(insereLogin($conexao, $login)) { ?>
 <?php
 }
 
-//header("location:Login.php?id=1");
+header("location:Login.php?id=1");
 ?>
 
 

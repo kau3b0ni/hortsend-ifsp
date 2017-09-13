@@ -16,11 +16,13 @@ $id = $_GET['id'];
 				</div>
 	    		<?php
 	    	} else {
+	    		if($id == 1){
 	    		?>
 	    		<div class="alert alert-danger">
   					<strong>Tem algo errado!</strong> Confira se o email e a senha estão corretos.
 				</div>
 	    		<?php
+	    	}
 	    	}
 	    	?>
 	    	<br /><br />

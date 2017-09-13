@@ -1,10 +1,29 @@
 <?php
-require_once("cabecalho.php");
+require_once("cabecalhoAdministrador.php");
 require_once("controller/produtoController.php");
 require_once("model/Produto.php");
 ?>
 	    	
 	<div id="main" class="container-fluid" style="margin-top: 50px">
+	<?php
+
+	    	if($_GET['id'] == 1){
+	    		?>
+	    		<div class="alert alert-success">
+  					<strong>Produto Cadastrado!</strong>
+				</div>
+	    		<?php
+	    	} else {
+	    		if($_GET['id'] == 2){
+	    		?>
+	    		<div class="alert alert-warning">
+  					<strong>Alteração</strong> Confira se o email e a senha estão corretos.
+				</div>
+	    		<?php
+	    	}
+	    	}
+	    	?>
+	<br /><br />
  
 		 	<div id="top" class="row">
 				<div class="col-sm-3">

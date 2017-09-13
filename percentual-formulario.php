@@ -1,5 +1,5 @@
 <?php
-require_once("cabecalho.php");
+require_once("cabecalhoAdministrador.php");
 ?>
 
 
@@ -11,7 +11,7 @@ require_once("cabecalho.php");
 	    	<div class="col-md-4">
 	    		<h3>Percentual de lucro</h3>
 	    		<br />
-				<form method="post" action="" id="formCadastrarse">
+				<form method="post" action="define-percentual.php" id="formCadastrarse">
 					<div class="form-group">
 						<input type="number" step="any" class="form-control" id="percentual" name="percentual" placeholder="Digite um número decimal" required="requiored">
 					</div>

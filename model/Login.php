@@ -9,8 +9,7 @@ class Login {
 	function __construct($email, $senha, $nivel_acesso) {
 		$this->email = $email;
 		$this->senha = $senha;
-		$this->nivel_acesso = $nivel_acesso;
-		echo $email;				
+		$this->nivel_acesso = $nivel_acesso;				
 	}
 
 
