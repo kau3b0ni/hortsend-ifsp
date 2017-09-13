@@ -9,11 +9,15 @@ require_once("cabecalho.php");
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">
-	    		<h3>Inscreva-se já.</h3>
+	    		<h3 align="center">Precisamos de algumas informações sua antes de começar.</h3>
 	    		<br />
 				<form method="post" action="" id="formCadastrarse">
 					<div class="form-group">
 						<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required="requiored">
+					</div>
+					
+					<div class="form-group">
+						<input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" required="requiored">
 					</div>
 
 					<div class="form-group">

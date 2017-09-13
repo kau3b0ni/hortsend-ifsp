@@ -7,8 +7,8 @@ require_once("cabecalho.php");
       <!-- Jumbotron Header -->
       <header class="jumbotron">
         <h1 class="display-3">Bem vindo a HortSend!</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-        <a href="inscrevase.php" class="btn btn-primary btn-lg">Começar agora!</a>
+        <p class="lead">Produtos de qualidade direto do forncedor para você e o melhor: SEM PRECISAR SAIR DE CASA! Cadastre-se, monte sua cesta e aproveite</p>
+        <a href="inscrevase.php" class="btn btn-primary btn-lg">Comece agora!</a>
       </header>
 
       <div class="container" style="padding-left:-20px;padding-right:30px">
