@@ -1,10 +1,6 @@
 <?php
 require_once("cabecalho.php");
-
-
-require_once("class/Produto.php");
-
-
+require_once("model/Produto.php");
 ?>	
 
 <br /><br />
