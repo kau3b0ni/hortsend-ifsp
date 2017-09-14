@@ -11,12 +11,13 @@ $matricula = $_POST['matricula'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-$nivel_acesso = 'administrador';
+$nivel_acesso = 'adm';
 
 
 $administrador = new Administrador($matricula,$nome,$email);
 $login = new login ($email, $senha, $nivel_acesso);
 
+echo $administrador->getEmail;
 
 
 if(insereAdministrador($conexao, $administrador)) { ?>
@@ -40,7 +41,7 @@ if(insereLogin($conexao, $login)) { ?>
 <?php
 }
 
-header("location:Login.php?id=1");
+//header("location:Login.php?id=1");
 ?>
 
 

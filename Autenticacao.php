@@ -24,6 +24,11 @@ if($usuario == null) {
 
 			header("Location: administrador-painel.php");
 		}
+
+		else if($usuario["nivel_acesso"]=='fornecedor'){
+
+			header("Location: paginaFornecedor.php");
+		}
 }
 die();
 

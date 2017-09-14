@@ -11,7 +11,7 @@ require_once("cabecalho.php");
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">
-	    		<h3>Cadastro de Fornecedor</h3>
+	    		<h3>Cadastro de Adiministrador</h3>
 	    		<br />
 				<form method="post" action="cadastroAdministrador.php" id="formCadastrarse">
 					<div class="form-group">
