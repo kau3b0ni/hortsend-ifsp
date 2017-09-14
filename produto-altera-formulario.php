@@ -4,7 +4,7 @@ require_once("model/Produto.php");
 require_once("controller/ProdutoController.php");
 
 $id = $_GET['id'];
-$produto = buscaProduto($conexao, $id);
+$produto = buscaProduto($id);
 
 ?>
 <br /><br />
@@ -14,7 +14,7 @@ $produto = buscaProduto($conexao, $id);
 	    		<h3>Alterar Produto</h3>
 	    		<br />
 			<form action="altera-produto.php" method="post">
-				<input type="hidden" name="id" value="<?=$produto->getId()?>">
+				<input type="hidden" name="id" value="<?=$produto->id_produto?>">
 				<table class="table">
 					<?php include("produto-altera-form-base.php"); ?>
 					<tr>

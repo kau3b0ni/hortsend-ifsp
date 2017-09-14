@@ -1,5 +1,5 @@
 <?php 
-require_once("cabecalhoAdministrador.php");
+//require_once("cabecalhoAdministrador.php");
 require_once("controller/produtoController.php");
 
 require_once("model/Produto.php");
@@ -16,7 +16,7 @@ $unidade = $_POST['unidade'];
 
 $produto = new Produto($nome, $preco_custo, $preco_venda, $unidade);
 
-if(insereProduto($conexao, $produto)) { ?>
+if(insereProduto($produto)) { ?>
 	<p class="text-success">O produto <?= $produto->getNome() ?>, <?= $produto->getPrecoVenda() ?> foi adicionado.</p>
 <?php 
 } else {

@@ -1,6 +1,6 @@
 <?php 
-require_once("controller/administradorController.php");
-require_once("controller/logicaUsuario.php");
+//require_once("controller/administradorController.php");
+//require_once("controller/logicaUsuario.php");
 function carregaClasse($nomeDaClasse) {
 	require_once("class/".$nomeDaClasse.".php");
 }
@@ -9,9 +9,9 @@ spl_autoload_register("carregaClasse");
 
 error_reporting(E_ALL ^ E_NOTICE); 
 
-if(!usuarioEstaLogado()){
+/*if(!usuarioEstaLogado()){
 	header('location:Login.php?id=2');
-}
+}*/
 
 
 ?>

@@ -61,22 +61,24 @@ require_once("model/Produto.php");
 					<th class="actions"></th>
 					</tr>
 					<?php
-					$produtos = listaProdutos($conexao);
+					$produtos = listaProdutos();
+					
 					foreach($produtos as $produto) :
+					
 					?>
-						<tr>
-							<td><?= $produto->getId() ?></td>
-							<td><?= $produto->getNome() ?></td>
-							<td><?= $produto->getPrecoCusto() ?></td>
-							<td><?= $produto->getPrecoVenda() ?></td>
-							<td><?= $produto->getUnidade() ?></td>
+						<tr>							
+							<td><?= $produto->id_produto ?></td>
+							<td><?= $produto->nome_produto ?></td>
+							<td><?= $produto->preco_custo ?></td>
+							<td><?= $produto->preco_venda ?></td>
+							<td><?= $produto->unidade ?></td>					
 							
 							<td class="actions">
-								<a class="btn btn-warning" href="produto-altera-formulario.php?id=<?php echo $produto->getId()?>">Editar</a>
+								<a class="btn btn-warning" href="produto-altera-formulario.php?id=<?php echo $produto->id_produto?>">Editar</a>
 							</td>
 							<td class="actions">
 								<form action="remove-produto.php" method="post">
-									<input type="hidden" name="id" value="<?=$produto->getId()?>">
+									<input type="hidden" name="id" value="<?=$produto->id_produto?>">
 									<button class="btn btn-danger">remover</button>
 								</form>								
 							</td>
