@@ -23,7 +23,7 @@ if(insereCliente($conexao, $cliente)) { ?>
 } else {
 	$msg = mysqli_error($conexao);
 ?>
-	<p class="text-danger">O produto <?= $produto->getNome() ?> não foi adicionado: <?= $msg?></p>
+	<p class="text-danger">O cliente <?= $cliente->getNome() ?> não foi adicionado: <?= $msg?></p>
 <?php
 }
 
@@ -34,9 +34,10 @@ if(insereLogin($conexao, $login)) { ?>
 } else {
 	$msg = mysqli_error($conexao);
 ?>
-	<p class="text-danger">O produto <?= $login->getEmail() ?> não foi adicionado: <?= $msg?></p>
+	<p class="text-danger">O cliente <?= $login->getEmail() ?> não foi adicionado: <?= $msg?></p>
 <?php
 }
+session_start();
 
 header("location:Login.php?id=1");
 ?>

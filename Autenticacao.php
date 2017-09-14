@@ -14,7 +14,16 @@ if($usuario == null) {
 } else {
 	$_SESSION["success"] = "Usuário logado com sucesso.";
 	logaUsuario($usuario["email"]);
-	header("Location: paginaAdministrador.php");
+	if($usuario["nivel_acesso"]=='cliente'){
+		$_SESSION["success"] = "Usuário logado com sucesso.";
+		header("Location: cliente-painel.php");
+	}
+		
+		else 
+		if($usuario["nivel_acesso"]=='adm'){
+
+			header("Location: administrador-painel.php");
+		}
 }
 die();
 

@@ -7,13 +7,13 @@
 <tr>
 	<td>Preço Custo</td>
 	<td>
-		<input type="number" step="any" class="form-control"" name="preco-custo"  >
+		<input type="number" step="any" class="form-control" name="preco-custo"  >
 	</td>
 </tr>
 <tr>
 	<td>Preço Venda</td>
 	<td>
-		<input type="number" step="any" class="form-control"" name="preco-venda" >
+		<input type="number" step="any" class="form-control" name="preco-venda" >
 	</td>
 </tr>
 <tr>

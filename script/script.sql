@@ -12,16 +12,16 @@ create table login(
 create table administrador(
 	matricula int not null primary key auto_increment,
     nome varchar(50) not null,
-    login_id int not null,
-	FOREIGN KEY (login_id) REFERENCES login(login_id)
+	email varchar(50) not null
 );
 
 create table cliente(
 	cliente_id int not null primary key auto_increment,
     nome_cliente varchar(50) not null,
     cpf_cliente varchar(50) not null,
-    login_id int not null,
-    FOREIGN KEY (login_id) REFERENCES login(login_id)
+	telefone_contato varchar(30) not null,
+	email varchar(50) not null
+    
 );
 
 create table endereco(
@@ -32,6 +32,7 @@ create table endereco(
     bairro varchar(50),
     cep varchar(50),
     cidade varchar(50),
+    uf varchar(50),
     FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
 );
 
@@ -39,8 +40,8 @@ create table fornecedor(
 	id_fornecedor int not null primary key auto_increment,
     razaosocial_fornecedor varchar(50) not null,
     cpnj_fornecedor varchar(50),
-    login_id int not null,
-    FOREIGN KEY (login_id) REFERENCES login(login_id)
+    telefone_contato varchar(30),
+	email varchar(50) not null
 );
 
 create table produto(

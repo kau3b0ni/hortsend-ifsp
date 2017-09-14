@@ -17,7 +17,7 @@ require_once("model/Produto.php");
 	    		if($_GET['id'] == 2){
 	    		?>
 	    		<div class="alert alert-warning">
-  					<strong>Alteração</strong> Confira se o email e a senha estão corretos.
+  					<strong>Alteração realizada!</strong>
 				</div>
 	    		<?php
 	    	}
