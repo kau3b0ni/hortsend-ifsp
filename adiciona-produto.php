@@ -10,15 +10,7 @@ $unidade = $_POST['unidade'];
 
 $produto = new Produto($nome, $preco_custo, $preco_venda, $unidade);
 
-if(insereProduto($produto)) { ?>
-	<p class="text-success">O produto foi adicionado.</p>
-<?php 
-} else {
-	//$msg = mysqli_error($conexao);
-?>
-	<p class="text-danger">O produto não foi adicionado.</p>
-<?php
-}
-header('location:produto-lista.php?id=1')
+insereProduto($produto);
+//header('location:produto-lista.php?id=1');
 ?>
 

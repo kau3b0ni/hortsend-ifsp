@@ -1,6 +1,7 @@
 <?php
 require_once("config/conexao.php");
 require_once("model/Produto.php");
+require_once("alerta-sessao.php");
 
 
 
@@ -19,14 +20,13 @@ function insereProduto(Produto $produto) {
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){
-				 echo "Operação realizada!";
-				 
+				mostra_alerta("O produto <?=$produto->getNome()?> foi adicionado.","success");
 			 } else {
-				 echo "Não foi possível exexutar a operação!";
+				mostra_alerta("Não foi possível executar a operação!","danger");
 			 }
-		 }       
-        
-        echo "Registro criado";
+		 }    
+		 return header('location:produto-lista.php');
+		
 
     } catch (PDOException $e) {
         echo "Problema com a conexão: " . $e->getMessage();
@@ -80,15 +80,13 @@ function alteraProduto($id, Produto $produto){
 		$stmt->bindValue(     ':unidade', $produto->getUnidade());
 		
 		if($stmt->execute()){
-				if($stmt->rowCount()>0){
-					echo "Operação realizada!";
-					
-				} else {
-					echo "Não foi possível exexutar a operação!";
-				}
-			}       
-			
-			echo "Registro criado";
+			if($stmt->rowCount()>0){
+			   mostra_alerta("Alteração realizada!","success");
+			} else {
+			   mostra_alerta("Não foi possível executar a operação!","danger");
+			}
+		}    
+		return header('location:produto-lista.php');  
 
 	} catch (PDOException $e) {
 		echo "Problema com a conexão: " . $e->getMessage();
@@ -143,11 +141,13 @@ function removeProduto($id) {
 		$stmt->bindParam(1, $id); 
 		
 		if($stmt->execute()){
-			echo "Produto excluído";
-			$id = null;
-		} else {
-			throw new PDOException("Erro: Não foi possível executar a declaração sql");	
-		}	
+			if($stmt->rowCount()>0){
+			   mostra_alerta("Operação realizada!","success");
+			} else {
+			   mostra_alerta("Não foi possível executar a operação!","danger");
+			}
+		}    
+		return header('location:produto-lista.php');	
 
 	} catch (PDOException $e) {
 		echo "Problema com a conexão: " . $e->getMessage();

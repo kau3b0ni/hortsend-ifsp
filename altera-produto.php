@@ -1,5 +1,5 @@
 <?php
-require_once("cabecalho-administrador.php");
+require_once("cabecalho-adm.php");
 require_once("controller/produtoController.php");
 require_once("model/Produto.php");
 

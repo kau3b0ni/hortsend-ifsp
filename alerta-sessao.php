@@ -1,8 +1,13 @@
 <?php
 session_start();
 
-function alerta($msg){
+function mostra_alerta($msg,$tipo){
 	$_SESSION["mensagem"] = $msg;
+	$_SESSION["tipo"] = $tipo;	
+}
+
+function limpa_alerta(){
+	unset($_SESSION["mensagem"]);
 }
 
 /*function usuarioEstaLogado() {
@@ -23,9 +28,9 @@ function usuarioLogado() {
 
 function logaUsuario($email) {
 	$_SESSION["usuario_logado"] = $email;
-}
+}*/
 
 function logout() {
 	session_destroy();
 	session_start();
-}*/
+}
