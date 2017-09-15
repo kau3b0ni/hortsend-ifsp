@@ -41,4 +41,3 @@ header("location:Login.php?id=1");
 ?>
 
 
-<?php include("rodape.php"); ?>
