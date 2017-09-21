@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-function alerta($msg){
-	$_SESSION["mensagem"] = $msg;
-}
 
 /*function usuarioEstaLogado() {
 	return isset($_SESSION["usuario_logado"]);

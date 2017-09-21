@@ -20,7 +20,7 @@ function insereProduto(Produto $produto) {
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){
-				mostra_alerta("O produto <?=$produto->getNome()?> foi adicionado.","success");
+				mostra_alerta("O produto foi adicionado.","success");
 			 } else {
 				mostra_alerta("Não foi possível executar a operação!","danger");
 			 }
@@ -102,7 +102,7 @@ function buscaProduto($id){
 	try { 
 		$database = new Conexao();
 		$db = $database->openConnection();
-
+		
 		$stmt = $db->prepare("SELECT * FROM produto WHERE id_produto = ?");
 		$stmt->bindParam(1, $id); 
 		

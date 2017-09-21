@@ -1,11 +1,24 @@
 <?php
 require_once("cabecalho.php");
+require_once("alerta-sessao.php");
 ?>
 
 
 
 
 	    <div class="container">
+		<!-- #alerta da operação -->
+			<?php
+				if (isset($_SESSION["mensagem"])) {
+			?>
+			<div class="alert alert-<?= $_SESSION["tipo"] ?>">
+				<strong><?= $_SESSION["mensagem"] ?></strong>
+			</div>
+			<?php
+			}
+				limpa_alerta();
+			?>
+			
 	    	
 	    	<br /><br />
 
@@ -13,7 +26,7 @@ require_once("cabecalho.php");
 	    	<div class="col-md-4">
 	    		<h3>Cadastro de Adiministrador</h3>
 	    		<br />
-				<form method="post" action="administrador-formulario.php" id="formCadastrarse">
+				<form method="post" action="adiciona-administrador.php" id="formCadastrarse">
 					<div class="form-group">
 						<input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required="requiored">
 					</div>
