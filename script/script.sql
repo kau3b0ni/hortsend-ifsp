@@ -1,4 +1,4 @@
-drop database hortsend;
+drop database if exists hortsend;
 create database hortsend;
 use hortsend;
 

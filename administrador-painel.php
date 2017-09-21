@@ -1,15 +1,23 @@
 <?php
-require_once("cabecalhoAdministrador.php");
+require_once("cabecalho-adm.php");
 ?>
 
 
-	    <div class="container">
-	    		<?php
-	    		echo $_SESSION['matricula'];	
-				echo $_SESSION['email'];	
-				?>
+		<div id="main" class="container-fluid" style="margin-top: 50px">
 
-		</div>
+			<!-- #alerta da operação -->
+			<?php
+				if (isset($_SESSION["mensagem"])) {
+			?>
+			<div class="alert alert-<?= $_SESSION["tipo"] ?>">
+				<strong><?= $_SESSION["mensagem"] ?></strong>
+			</div>
+			<?php
+			}
+				limpa_alerta();
+			?>
+			
+		</div>	
 
 
 	   

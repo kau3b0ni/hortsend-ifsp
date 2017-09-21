@@ -1,5 +1,5 @@
 <?php
-class Login {
+class Usuario {
 	private $id;
 	private $email;
 	private $senha;

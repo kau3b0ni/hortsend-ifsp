@@ -4,13 +4,12 @@
 
 	private $matricula;
 	private $nome;
-	private $email;
+	private $usuario_id;
 
-	function __construct($matricula, $nome, $email) {
+	function __construct($matricula, $nome, $usuario_id) {
 		$this->nome = $nome;
 		$this->cnpj = $cnpj;
-		$this->email = $email;
-		$this->telefone_contato = $telefone_contato;				
+		$this->usuario_id = $usuario_id;						
 	}
 
 	public function getMatricula() {
@@ -29,12 +28,12 @@
 		$this->nome = $nome;
 	}
 	
-	public function getEmail() {
-		return $this->email;
+	public function getUsuarioId() {
+		return $this->usuario_id;
 	}
 
-	public function setEmail($email) {
-		$this->email = $email;
+	public function setUsuarioId($usuario_id) {
+		$this->usuario_id = $usuario_id;
 	}
 
 }

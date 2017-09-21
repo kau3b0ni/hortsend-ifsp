@@ -1,8 +1,8 @@
 <?php
 require_once("cabecalho.php");
-require_once("conecta.php");
+require_once("config/conexao.php");
 require_once("controller/loginController.php");
-require_once("model/Login.php");
+require_once("model/login-formulario.php");
 
 
 require_once("controller/logicaUsuario.php");
