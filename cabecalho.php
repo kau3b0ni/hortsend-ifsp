@@ -21,6 +21,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 		<!-- jquery - link cdn -->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="js/jQuery.js"></script>
+		<script src="js/jquery.mask.js"></script>
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -51,7 +53,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 	          <ul class="nav navbar-nav navbar-right">
 	          	<li><a href="index.php">Home</a></li>
 	          	<li><a href="#">Produtos</a></li>
-	            <li><a href="inscrevase.php">Inscrever-se</a></li>
+	            <li><a href="cliente-formulario.php">Inscrever-se</a></li>
 	            <li class="">
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
