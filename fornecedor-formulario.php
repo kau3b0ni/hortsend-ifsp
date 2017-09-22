@@ -23,10 +23,6 @@ require_once("cabecalho.php");
 					</div>
 
 					<div class="form-group">
-						<input type="text" id="telefone" name="telefone" class="form-control" placeholder="telefone" required="requiored">
-					</div>
-
-					<div class="form-group">
 						<input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required="requiored">
 					</div>
 
