@@ -15,32 +15,3 @@ echo $nome;
 $cliente = new Cliente($nome,$cpf,$email, $telefone);
 $login = new login ($email, $senha, $nivel_acesso);
 
-
-
-if(insereCliente($conexao, $cliente)) { ?>
-	<p class="text-success">O cliente <?= $cliente->getNome() ?>, <?= $cliente->getCpf() ?> foi adicionado.</p>
-<?php 
-} else {
-	$msg = mysqli_error($conexao);
-?>
-	<p class="text-danger">O cliente <?= $cliente->getNome() ?> não foi adicionado: <?= $msg?></p>
-<?php
-}
-
-
-if(insereLogin($conexao, $login)) { ?>
-	<p class="text-success">O login <?= $login->getEmail() ?>, <?= $login->getNivelAcesso() ?> foi adicionado.</p>
-<?php 
-} else {
-	$msg = mysqli_error($conexao);
-?>
-	<p class="text-danger">O cliente <?= $login->getEmail() ?> não foi adicionado: <?= $msg?></p>
-<?php
-}
-session_start();
-
-header("location:Login.php?id=1");
-?>
-
-
-<?php include("rodape.php"); ?>

@@ -1,7 +1,7 @@
 <?php 
 //require_once("cabecalhoAdministrador.php");
-require_once("controller/produtoController.php");
-require_once("model/Produto.php");
+require_once("../controller/produtoController.php");
+require_once("../model/Produto.php");
 
 $nome =        $_POST['nome'];
 $preco_custo = $_POST['preco-custo'];

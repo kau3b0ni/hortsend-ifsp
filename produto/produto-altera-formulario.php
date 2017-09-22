@@ -1,7 +1,7 @@
 <?php
-require_once("cabecalho-adm.php");
-require_once("model/Produto.php");
-require_once("controller/ProdutoController.php");
+require_once("../cabecalho-adm.php");
+require_once("../model/Produto.php");
+require_once("../controller/ProdutoController.php");
 
 $id = $_GET['id'];
 $produto = buscaProduto($id);
@@ -25,4 +25,4 @@ $produto = buscaProduto($id);
 				</table>
 			</form>
 
-<?php include("rodape.php"); ?>
+<?php include("../rodape.php"); ?>

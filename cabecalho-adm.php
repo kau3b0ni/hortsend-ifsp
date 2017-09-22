@@ -30,7 +30,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 	
 		<script>
 			// código javascript						
@@ -49,14 +49,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <img src="imagens/logo.png" />
+	          <img src="../imagens/logo.png" />
 	        </div>
 	        
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 
 	          	<li><a href="#">Home</a></li>
-	          	<li><a href="produto-lista.php">Produtos</a></li>
+	          	<li><a href="/produto/produto-lista.php">Produtos</a></li>
 	          	<li><a href="percentual-formulario.php">Percentual de Lucro</a></li>
 	          	<li><a href="#">Vendas Realizadas</a></li>
 	          	<li><a href="#">Fornecedores Cadastrados</a></li>

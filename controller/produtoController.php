@@ -1,8 +1,7 @@
 <?php
-require_once("config/conexao.php");
-require_once("model/Produto.php");
-require_once("alerta-sessao.php");
-
+require_once("../config/conexao.php");
+require_once("../model/Produto.php");
+require_once("../alerta-sessao.php");
 
 
 function insereProduto(Produto $produto) {
@@ -69,10 +68,10 @@ function alteraProduto($id, Produto $produto){
 		$db = $database->openConnection();
 
 		$stmt = $db->prepare("UPDATE produto SET nome_produto = :nome_produto,
-												preco_custo = :preco_custo,
-												preco_venda = :preco_venda,
-												unidade = :unidade
-												WHERE id_produto = {$id}");
+												 preco_custo = :preco_custo,
+												 preco_venda = :preco_venda,
+												 unidade = :unidade
+												 WHERE id_produto = {$id}");
 		
 		$stmt->bindValue(':nome_produto', $produto->getNome());
 		$stmt->bindValue( ':preco_custo', $produto->getPrecoCusto());
@@ -142,7 +141,7 @@ function removeProduto($id) {
 		
 		if($stmt->execute()){
 			if($stmt->rowCount()>0){
-			   mostra_alerta("Operação realizada!","success");
+			   mostra_alerta("Produto removido!","success");
 			} else {
 			   mostra_alerta("Não foi possível executar a operação!","danger");
 			}

@@ -8,6 +8,7 @@ function mostra_alerta($msg,$tipo){
 
 function limpa_alerta(){
 	unset($_SESSION["mensagem"]);
+	unset($_SESSION["tipo"]);
 }
 
 /*function usuarioEstaLogado() {

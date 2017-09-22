@@ -1,7 +1,7 @@
 <?php
-require_once("config/conexao.php");
-require_once("model/Usuario.php");
-require_once("alerta-sessao.php");
+require_once("../config/conexao.php");
+require_once("../model/Usuario.php");
+require_once("../alerta-sessao.php");
 
 
 function insereUsuario(Usuario $usuario) {
@@ -27,9 +27,12 @@ function insereUsuario(Usuario $usuario) {
 		
 
     } catch (PDOException $e) {
-        if($e->getCode() ==23000){
-            mostra_alerta("O usuário foi adicionado.","success");
-            echo "Erro:".$e->getCode()." Registro já existe." ; 
+        if($e->getCode() == 23000){
+            mostra_alerta("O registro já existe.","danger");
+            if ($usuario->getNivelAcesso() == 1){
+                return header('location:adm-form.php');
+            }           
+            //echo "Erro:".$e->getCode()." Registro já existe." ; 
         }else{ 
             echo "Problema com a conexão: " . $e->getCode(); // shows the exception error message 
         } 
@@ -57,7 +60,8 @@ function buscaUsuarioId($email){
                         
                     } else {
                         echo "Não foi possível exexutar a operação!";
-                    }			       
+                    }			      
+
                 
                 
     

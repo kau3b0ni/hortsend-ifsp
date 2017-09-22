@@ -1,5 +1,6 @@
 <?php
-require_once("cabecalho-adm.php");
+require_once("../cabecalho-adm.php");
+require_once("../alerta-sessao.php");
 ?>
 
 
@@ -16,12 +17,12 @@ require_once("cabecalho-adm.php");
 			}
 				limpa_alerta();
 			?>
-			
+
 		</div>	
 
 
 	   
 		
 <?php
-require_once("rodape.php");
+require_once("../rodape.php");
 ?>

@@ -8,7 +8,7 @@
 
 	function __construct($matricula, $nome, $usuario_id) {
 		$this->nome = $nome;
-		$this->cnpj = $cnpj;
+		$this->nome = $nome;
 		$this->usuario_id = $usuario_id;						
 	}
 

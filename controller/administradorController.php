@@ -1,6 +1,6 @@
 <?php
-require_once("config/conexao.php");
-require_once("model/Administrador.php");
+require_once("../config/conexao.php");
+require_once("../model/Administrador.php");
 
 function insereAdministrador(Administrador $administrador) {
 
@@ -17,7 +17,7 @@ function insereAdministrador(Administrador $administrador) {
 		if($stmt->execute()){
 						
 			 if($stmt->rowCount()>0){
-				mostra_alerta("O usuário foi adicionado.","success");
+				echo ("O administrador foi adicionado.");
 			 } else {
 				mostra_alerta("Não foi possível executar a operação!","danger");
 			 }
