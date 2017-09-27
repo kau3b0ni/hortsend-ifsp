@@ -73,7 +73,7 @@ require_once("../alerta-sessao.php");
                             </td>
                             <td class="actions">
                                 <form action="remove-produto.php" method="post">
-                                    <input type="hidden" name="id" value="<?=$produto->id_produto?>">
+                                    <input type="hidden" name="id" value="<?= $produto->id?>">
                                     <button class="btn btn-danger">remover</button>
                                 </form>                             
                             </td>

@@ -6,55 +6,104 @@
 	private $nome;
 	private $cpf;
 	private $telefone_contato;
-	private $email;
-	private $login;	
+	private $usuario_id;
 
-	function __construct($nome, $cpf, $email, $telefone_contato) {
-		$this->nome = $nome;
-		$this->cpf = $cpf;
-		$this->email = $email;
-		$this->telefone_contato = $telefone_contato;				
-	}
+     /**
+      * Cliente constructor.
+      * @param $nome
+      * @param $cpf
+      * @param $telefone_contato
+      * @param $usuario_id
+      */
+     public function __construct($nome, $cpf, $telefone_contato, $usuario_id)
+     {
+         $this->nome = $nome;
+         $this->cpf = $cpf;
+         $this->telefone_contato = $telefone_contato;
+         $this->usuario_id = $usuario_id;
+     }
 
-	public function getId() {
-		return $this->id;
-	}
+     /**
+      * @return mixed
+      */
+     public function getId()
+     {
+         return $this->id;
+     }
 
-	public function setId($id) {	
-		$this->id = $id;
-	}
+     /**
+      * @param mixed $id
+      */
+     public function setId($id)
+     {
+         $this->id = $id;
+     }
 
-	public function getNome() {
-		return $this->nome;
-	}
+     /**
+      * @return mixed
+      */
+     public function getNome()
+     {
+         return $this->nome;
+     }
 
-	public function setNome($nome) {
-		$this->nome = $nome;
-	}
+     /**
+      * @param mixed $nome
+      */
+     public function setNome($nome)
+     {
+         $this->nome = $nome;
+     }
 
-	public function getCpf() {
-		return $this->cpf;
-	}
+     /**
+      * @return mixed
+      */
+     public function getCpf()
+     {
+         return $this->cpf;
+     }
 
-	public function setCpf($cpf) {
-		$this->cpf = $cpf;
-	}
+     /**
+      * @param mixed $cpf
+      */
+     public function setCpf($cpf)
+     {
+         $this->cpf = $cpf;
+     }
 
-	public function getTelefoneContato() {
-		return $this->telefone_contato;
-	}
+     /**
+      * @return mixed
+      */
+     public function getTelefoneContato()
+     {
+         return $this->telefone_contato;
+     }
 
-	public function setTelefoneContato($telefone_contato) {
-		$this->telefone_contato= $telefone_contato;
-	}
+     /**
+      * @param mixed $telefone_contato
+      */
+     public function setTelefoneContato($telefone_contato)
+     {
+         $this->telefone_contato = $telefone_contato;
+     }
 
-	public function getEmail() {
-		return $this->email;
-	}
+     /**
+      * @return mixed
+      */
+     public function getUsuarioId()
+     {
+         return $this->usuario_id;
+     }
 
-	public function setEmail($email) {
-		$this->email = $email;
-	}
+     /**
+      * @param mixed $usuario_id
+      */
+     public function setUsuarioId($usuario_id)
+     {
+         $this->usuario_id = $usuario_id;
+     }
+
+
 
 }
 

@@ -1,60 +1,62 @@
-drop database if exists hortsend;
+drop database hortsend;
 create database hortsend;
 use hortsend;
 
-create table login(
-	login_id int not null primary key auto_increment,
-    email varchar(50) not null,
-    senha varchar(50) not null,
-    nivel_acesso varchar(10)
+create table usuario(
+    id int not null primary key auto_increment,
+    email varchar(50) not null unique,
+    senha varchar(30) not null,
+    nivel_acesso int not null
 );
 
 create table administrador(
-	matricula int not null primary key auto_increment,
+    matricula int not null primary key auto_increment,
     nome varchar(50) not null,
-	email varchar(50) not null
+    usuario_id int not null,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 create table cliente(
-	cliente_id int not null primary key auto_increment,
+    id_cliente int not null primary key auto_increment,
     nome_cliente varchar(50) not null,
-    cpf_cliente varchar(50) not null,
-	telefone_contato varchar(30) not null,
-	email varchar(50) not null
-    
+    cpf_cliente varchar(11) not null,
+    telefone_contato varchar(15) not null,
+    usuario_id int not null,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 create table endereco(
-	id_endereco int not null primary key auto_increment,
-    cliente_id int not null,
+    id_endereco int not null primary key auto_increment,
+    id_cliente int not null,
     rua varchar(50),
     numero varchar(50),
     bairro varchar(50),
     cep varchar(50),
     cidade varchar(50),
     uf varchar(50),
-    FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
 );
 
 create table fornecedor(
-	id_fornecedor int not null primary key auto_increment,
+    id_fornecedor int not null primary key auto_increment,
     razaosocial_fornecedor varchar(50) not null,
-    cpnj_fornecedor varchar(50),
-    telefone_contato varchar(30),
-	email varchar(50) not null
+    cpnj_fornecedor varchar(14),
+    telefone_contato varchar(15),
+    usuario_id int not null,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
 create table produto(
-	id_produto int not null primary key auto_increment,
-	nome_produto varchar(50),
+    id_produto int not null primary key auto_increment,
+    nome_produto varchar(50),
     demanda_geral int,
-    unidade varchar(50),
+    unidade varchar(10),
     preco_custo float,
     preco_venda float
 );
 
 create table produto_fornecedor(
-	id int not null primary key auto_increment,
+    id int not null primary key auto_increment,
     id_produto int not null,
     id_fornecedor int not null,
     quantidade_demanda int,
@@ -64,8 +66,17 @@ create table produto_fornecedor(
 );
 
 create table percentual(
-	percentual_lucro float,
+    percentual_lucro float not null
+);
+
+create table percentual_auditoria(
+    id int not null primary key auto_increment,
     data_modificacao date,
-	administrador_matricula int,
+    percentual_old float,
+    administrador_matricula int,
     FOREIGN KEY (administrador_matricula) REFERENCES administrador(matricula)
 );
+
+CREATE VIEW cliente_usuario AS select * from cliente c join usuario u on c.usuario_id = u.id;
+CREATE VIEW fornecedor_usuario AS select * from fornecedor f join usuario u on f.usuario_id = u.id;
+CREATE VIEW administrador_usuario AS select * from administrador a join usuario u on a.usuario_id = u.id;

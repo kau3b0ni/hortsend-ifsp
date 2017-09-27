@@ -11,6 +11,7 @@ function limpa_alerta(){
 	unset($_SESSION["tipo"]);
 }
 
+
 /*function usuarioEstaLogado() {
 	return isset($_SESSION["usuario_logado"]);
 }

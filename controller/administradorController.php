@@ -4,31 +4,31 @@ require_once("../model/Administrador.php");
 
 function insereAdministrador(Administrador $administrador) {
 
-	try {     
-		$database = new Conexao();
-		$db = $database->openConnection();
-		    
-		$stmt = $db->prepare("INSERT INTO administrador(matricula,nome,usuario_id) VALUES (?,?,?)") ;
-		       
-		$stmt->bindValue(1, $administrador->getMatricula());
-		$stmt->bindValue(2, $administrador->getNome());
-		$stmt->bindValue(3, $administrador->getUsuarioId());     
-		
-		if($stmt->execute()){
-						
-			 if($stmt->rowCount()>0){
-				echo ("O administrador foi adicionado.");
-			 } else {
-				mostra_alerta("Não foi possível executar a operação!","danger");
-			 }
-		 }    
-		 //return header('location:produto-lista.php');		
-		 
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+
+        $stmt = $db->prepare("INSERT INTO administrador(matricula,nome,usuario_id) VALUES (?,?,?)") ;
+
+        $stmt->bindValue(1, $administrador->getMatricula());
+        $stmt->bindValue(2, $administrador->getNome());
+        $stmt->bindValue(3, $administrador->getUsuarioId());
+
+        if($stmt->execute()){
+
+            if($stmt->rowCount()>0){
+                echo ("O administrador foi adicionado.");
+            } else {
+                mostra_alerta("Não foi possível executar a operação!","danger");
+            }
+        }
+        //return header('location:produto-lista.php');
+
     } catch (PDOException $e) {
         echo "Problema com a conexão: " . $e->getMessage();
     }
 
-	$db = $database->closeConnection();
+    $db = $database->closeConnection();
 
 }
 

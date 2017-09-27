@@ -124,10 +124,7 @@ function buscaProduto($id){
 		$db = $database->closeConnection();	
 
 }
-
-	
-
-    
+  
 
 
 

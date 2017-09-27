@@ -49,7 +49,7 @@ require_once("model/Produto.php");
 				<div id="top" class="row">
 					
 					<div class="col-sm-12">
-						<a href="endereco-formulario.php" class="btn btn-primary pull-right h2">Novo endereco</a>
+						<a href="../endereco-formulario.php" class="btn btn-primary pull-right h2">Novo endereco</a>
 					</div>
 				</div> 
 			<?php include("endereco-lista.php"); ?>

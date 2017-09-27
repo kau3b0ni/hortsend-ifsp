@@ -1,13 +1,36 @@
 <?php
-require_once("conecta.php");
-require_once("model/Cliente.php");
+require_once("../config/conexao.php");
+require_once("../model/Cliente.php");
 
-function insereCliente($conexao, Cliente $cliente) {
+function insereCliente(Cliente $cliente) {
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
 
-	$query = "insert into Cliente (nome_cliente, cpf_cliente, email, telefone_contato) 
-		values ('{$cliente->getNome()}', '{$cliente->getCpf()}', '{$cliente->getEmail()}',  '{$cliente->getTelefoneContato()}')";
+        $stmt = $db->prepare("INSERT INTO cliente(nome_cliente, cpf_cliente, telefone_contato, usuario_id) VALUES (?,?,?,?)") ;
 
-	return mysqli_query($conexao, $query);
+        $stmt->bindValue(1, $cliente->getNome());
+        $stmt->bindValue(2, $cliente->getCpf());
+        $stmt->bindValue(3, $cliente->getTelefoneContato());
+        $stmt->bindValue(4, $cliente->getUsuarioId());
+
+
+        if($stmt->execute()){
+
+            if($stmt->rowCount()>0){
+                echo ("O administrador foi adicionado.");
+            } else {
+                mostra_alerta("Não foi possível executar a operação!","danger");
+            }
+        }
+        //return header('location:produto-lista.php');
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
+
 }
 
 ?>
