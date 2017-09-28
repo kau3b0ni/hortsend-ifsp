@@ -19,7 +19,7 @@ function insereAdministrador(Administrador $administrador) {
             if($stmt->rowCount()>0){
                 echo ("O administrador foi adicionado.");
             } else {
-                mostra_alerta("Não foi possível executar a operação!","danger");
+                echo ("Não foi possível executar a operação!");
             }
         }
         //return header('location:produto-lista.php');

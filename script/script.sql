@@ -19,7 +19,7 @@ create table administrador(
 create table cliente(
     id_cliente int not null primary key auto_increment,
     nome_cliente varchar(50) not null,
-    cpf_cliente varchar(11) not null,
+    cpf_cliente varchar(11) not null unique,
     telefone_contato varchar(15) not null,
     usuario_id int not null,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)

@@ -16,25 +16,22 @@ function insereUsuario(Usuario $usuario) {
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){
-				mostra_alerta("O usuário foi adicionado.","success");
-			 } else {
-				mostra_alerta("Não foi possível executar a operação!","danger");
+				return 1;
 			 }
          }
          
-         
-		 //return header('location:produto-lista.php');
+
 		
 
     } catch (PDOException $e) {
         if($e->getCode() == 23000){
-            mostra_alerta("O registro já existe.","danger");
-            if ($usuario->getNivelAcesso() == 1){
-                return header('location:adm-form.php');
-            }           
-            //echo "Erro:".$e->getCode()." Registro já existe." ; 
-        }else{ 
-            echo "Problema com a conexão: " . $e->getCode(); // shows the exception error message 
+            if(strpos($e->getMessage(),"for key 'email'") > 0){
+                mostra_alerta("Não foi possível adicionar. O e-mail "
+                    . $usuario->getEmail() . " já existe.","danger");
+            }
+            //mostra_alerta("Não foi possível adicionar. Erro: " . $e->getMessage(),"danger");
+        }else{
+            mostra_alerta("Problema com a conexão. Erro: " . $e->getMessage(),"danger");
         } 
                    
     }
@@ -72,3 +69,27 @@ function buscaUsuarioId($email){
             $db = $database->closeConnection();	
     
     }
+
+
+
+function verificaEmail($email){
+
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+
+        $stmt = $db->prepare("SELECT * FROM usuario WHERE email = ?");
+        $stmt->bindParam(1, $email);
+
+        if($stmt->execute()){
+
+
+        }
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
+
+}

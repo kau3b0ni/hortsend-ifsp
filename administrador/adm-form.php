@@ -1,9 +1,25 @@
 <?php
-require_once("../model/Produto.php");
+require_once("../alerta-sessao.php");
 ?>	
 <?php include("../cabecalho.php"); ?>
 
-<br /><br />
+
+        <div id="main" class="container-fluid" style="margin-top: 50px">
+
+            <!-- #alerta da operação -->
+            <?php
+            if (isset($_SESSION["mensagem"])) {
+                ?>
+                <div class="alert alert-<?= $_SESSION["tipo"] ?>">
+                    <strong><?= $_SESSION["mensagem"] ?></strong>
+                </div>
+                <?php
+            }
+            limpa_alerta();
+            ?>
+
+        </div>
+        <br /><br />
 
 	    	<div class="col-md-4"></div>
 	    	<div class="col-md-4">

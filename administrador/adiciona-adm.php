@@ -12,11 +12,21 @@ $senha = $_POST['senha'];
 $nivel_acesso = 1;
 
 $usuario = new Usuario($email, $senha, $nivel_acesso);
-insereUsuario($usuario);
-$usuario_id = buscaUsuarioId($email);        
-$administrador = new Administrador($matricula, $nome, $usuario_id);
-insereAdministrador($administrador);
-var_dump($administrador);
+//$result = insereUsuario($usuario);
+//$usuario_id = buscaUsuarioId($email);
+if(insereUsuario($usuario)==1){
+    $usuario_id = buscaUsuarioId($email);
+    $administrador = new Administrador($matricula, $nome, $usuario_id);
+    insereAdministrador($administrador);
+    mostra_alerta("O administrador cadastrado","warning");
+    header('location:adm-painel.php');
+}else {
+
+    header('location:adm-form.php');
+}
+//mostra_alerta($result,"success");
+//header('location:adm-painel.php');
+//var_dump($result);
 
 
 
