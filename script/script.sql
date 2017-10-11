@@ -29,11 +29,11 @@ create table endereco(
     id_endereco int not null primary key auto_increment,
     id_cliente int not null,
     rua varchar(50),
-    numero varchar(50),
-    bairro varchar(50),
-    cep varchar(50),
-    cidade varchar(50),
-    uf varchar(50),
+    numero varchar(10),
+    bairro varchar(30),
+    cep varchar(10),
+    cidade varchar(30),
+    uf varchar(2),
     FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
 );
 
@@ -56,13 +56,29 @@ create table produto(
 );
 
 create table produto_fornecedor(
-    id int not null primary key auto_increment,
+    id_produto_fornecedor int not null primary key auto_increment,
     id_produto int not null,
     id_fornecedor int not null,
     quantidade_demanda int,
     quantidade_estoque int,
     FOREIGN KEY (id_produto) REFERENCES produto(id_produto),
     FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+);
+
+create table encomenda(
+	id_encomenda int not null primary key auto_increment,
+    id_fornecedor int not null,
+    data_entrega datetime,
+    encomenda_status ENUM('agendado','entregue','não entregue'),
+    FOREIGN KEY (id_fornecedor) REFERENCES fornecedor(id_fornecedor)
+);
+
+create table item_encomenda(
+	id_encomenda int not null primary key,
+    id_produto_fornecedor int not null,
+    quantidade double,
+    foreign key (id_encomenda) references encomenda(id_encomenda),
+    foreign key (id_produto_fornecedor) references produto_fornecedor(id_produto_fornecedor)
 );
 
 create table percentual(
@@ -75,6 +91,30 @@ create table percentual_auditoria(
     percentual_old float,
     administrador_matricula int,
     FOREIGN KEY (administrador_matricula) REFERENCES administrador(matricula)
+);
+
+
+create table cesta(
+	id_cesta int not null primary key auto_increment,
+    id_cliente int not null,
+    valor_total double,
+    FOREIGN KEY (id_cliente) references cliente(id_cliente)
+);
+
+create table item_cesta(
+	id_item_cesta int not null primary key auto_increment,
+    id_cesta int not null,
+    id_produto int not null,
+    quantidade double,
+    FOREIGN KEY (id_cesta) references cesta(id_cesta),
+    FOREIGN KEY (id_produto) references produto(id_produto)
+);
+
+create table entrega(
+	id int not null primary key auto_increment,
+    id_cesta int not null,
+    data_entrega datetime not null,
+    estado ENUM('agendado','a caminho','entregue','falha na entrega')
 );
 
 CREATE VIEW cliente_usuario AS select * from cliente c join usuario u on c.usuario_id = u.id;
