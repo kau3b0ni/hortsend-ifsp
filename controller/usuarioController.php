@@ -12,7 +12,7 @@ function insereUsuario(Usuario $usuario) {
 		$stmt->bindValue(1, $usuario->getEmail());
         $stmt->bindValue(2, $usuario->getSenha());
         $stmt->bindValue(3, $usuario->getNivelAcesso());
-        
+
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){

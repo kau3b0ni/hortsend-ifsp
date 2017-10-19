@@ -1,0 +1,16 @@
+{
+    "name": "kaue/hortsend-ifsp",
+    "require": {
+        "almasaeed2010/adminlte": "^2.4"
+    },
+    "authors": [
+        {
+            "name": "Kauê Bonilha",
+            "email": "kau3b0ni@gmail.com"
+        }
+        {
+            "name": "Carlos Eduardo Junior",
+            "email": "junioredua@gmail.com"
+        }
+    ]
+}

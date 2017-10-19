@@ -25,7 +25,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/hortsend.css">
 	
 		<script>
 			// código javascript						

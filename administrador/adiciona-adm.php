@@ -19,13 +19,12 @@ if(insereUsuario($usuario)==1){
     $administrador = new Administrador($matricula, $nome, $usuario_id);
     insereAdministrador($administrador);
     mostra_alerta("O administrador cadastrado","warning");
-    header('location:adm-painel.php');
+    header('location:painel.php');
 }else {
-
-    header('location:adm-form.php');
+    header('location:cliente-cadastro.php');
 }
 //mostra_alerta($result,"success");
-//header('location:adm-painel.php');
+//header('location:painel.php');
 //var_dump($result);
 
 
