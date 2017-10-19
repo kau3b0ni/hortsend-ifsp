@@ -1,4 +1,4 @@
-drop database hortsend;
+#drop database hortsend;
 create database hortsend;
 use hortsend;
 
@@ -76,6 +76,7 @@ create table encomenda(
 create table item_encomenda(
 	id_encomenda int not null primary key,
     id_produto_fornecedor int not null,
+    valor_item double,
     quantidade double,
     foreign key (id_encomenda) references encomenda(id_encomenda),
     foreign key (id_produto_fornecedor) references produto_fornecedor(id_produto_fornecedor)
@@ -113,6 +114,7 @@ create table item_cesta(
 create table entrega(
 	id int not null primary key auto_increment,
     id_cesta int not null,
+    valor double not null,
     data_entrega datetime not null,
     estado ENUM('agendado','a caminho','entregue','falha na entrega')
 );
