@@ -1,25 +1,58 @@
 <?php
-require_once("conecta.php");
-require_once("model/Endereco.php");
-require_once("controller/logicaUsuario.php");
+
+
+function insereEndereco(Endereco $end) {
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+        $stmt = $db->prepare("INSERT INTO endereco (id_cliente,rua,numero,bairro,cep, cidade, uf) VALUES (?,?,?,?,?,?,?)") ;
+
+        $stmt->bindValue(1, $end->getClienteId());
+        $stmt->bindValue(2, $end->getRua());
+        $stmt->bindValue(3, $end->getNumero());
+        $stmt->bindValue(4, $end->getBairro());
+        $stmt->bindValue(5, $end->getCep());
+        $stmt->bindValue(6, $end->getCidade());
+        $stmt->bindValue(7, $end->getUf());
 
 
 
-function buscaCliente($conexao, $usuarioLogado){    
-	$query = "select * from cliente where email='{$usuarioLogado}'";
-	$resultado = mysqli_query($conexao, $query);
-	$cliente = mysqli_fetch_assoc($resultado);
-	return $cliente;
+        if($stmt->execute()){
+            if($stmt->rowCount()>0){
+               mostra_alerta("O endereco foi adicionado.","success");
+                //echo("sucesso");
+            }
+        }
+
+    } catch (PDOException $e) {
+        $erro =  "Problema com a conexão: " . $e->getMessage();
+        //echo($erro);
+        mostra_alerta($erro,"danger");
+    }
+
+    $db = $database->closeConnection();
 }
 
 
+function buscaEndereco($cliente_id){
 
-function insereEndereco($conexao, Endereco $endereco) {
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
 
-	$query = "insert into endereco (cliente_id, rua, numero, bairro, cep, cidade, uf) 
-		values ('{$endereco->getClientId()}', '{$endereco->getRua()}', 
-			'{$endereco->getNumero()}', '{$endereco->getBairro()}','{$endereco->getCep()}',
-            '{$endereco->getCidade()}', '{$endereco->getUf()}')";
-    var_dump($query);
-	return mysqli_query($conexao, $query);
+        $stmt = $db->prepare("SELECT * FROM endereco WHERE id_cliente = $cliente_id");
+        $stmt->bindParam(1, $cpf);
+
+        if($stmt->execute()){
+            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+                return $resultado;
+            }
+        }
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
+
 }

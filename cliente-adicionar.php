@@ -20,7 +20,7 @@ $senha = $_POST['senha'];
 $nivel_acesso = '2';
 $usuario = new Usuario($email, md5($senha), $nivel_acesso);
 $em = verificaEmail($email);
-$cp = verificaCpf($cpf);
+$cp = buscaCpf($cpf);
 
 if(!empty($em[0])){
     mostra_alerta("E-mail já existe.","warning");

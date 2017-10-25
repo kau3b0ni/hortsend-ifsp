@@ -14,11 +14,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Minhas cestas</a></li>
-                        <li><a href="#">Produtos</a></li>
-                        <li><a href="#">Meus Endereços</a></li>
-                        <li><a href="index.php">Sair</a></li>
+                        <li><a href="cliente-painel.php">Meu HortSend</a></li>
+                        <li><a href="cliente-cestas.php">Minhas cestas</a></li>
+                        <li><a href="produtos.php">Produtos</a></li>
+                        <li><a href="efetua-logout.php">Sair</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

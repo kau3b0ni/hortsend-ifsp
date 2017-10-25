@@ -1,61 +1,84 @@
 <?php
-require_once("cabecalhoCliente.php");
-require_once("controller/produtoController.php");
-require_once("controller/logicaUsuario.php");
-require_once("model/Produto.php");
+require_once("controle-sessao.php");
+require_once("controller/enderecoController.php");
+require_once("config/conexao.php");
+if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
+    include("head.php");
+    include(carrega_barra_navegacao($_SESSION['usuario_logado']['nivel_acesso']));
+}else{
+    header("location:index.php");
+}
+
 ?>
 	<?php 
 	
-	$cliente_email = usuarioLogado();
+	//$cliente_email = usuarioLogado();
 	
-	?> 
-	<div id="main" class="container-fluid" style="margin-top: 10px">
-	<?php
+	?>
+    <!-- Full Width Column -->
+    <div class="content-wrapper">
+        <div class="container">
+            <?php
+            if (isset($_SESSION["mensagem"])) {
+                ?>
+                <div class="alert alert-<?= $_SESSION["tipo"] ?>">
+                    <strong><?= $_SESSION["mensagem"] ?></strong>
+                </div>
+                <?php
+            }
+            limpa_alerta();
+            ?>
+            <div class="box-default">
+                <div class="box-header">
 
-	    	if($_GET['id'] == 1){
-	    		?>
-	    		<div class="alert alert-success">
-  					<strong>Produto Cadastrado!</strong>
-				</div>
-	    		<?php
-	    	} else {
-	    		if($_GET['id'] == 2){
-	    		?>
-	    		<div class="alert alert-warning">
-  					<strong>Alteração</strong> Produto alterado!.
-				</div>
-	    		<?php
-	    	}
-	    	}
-	    	?>
-	<br /><br />
- 
-	<div class="row">
-        <div class="col-md-12"> 
-            <h2 class="text-center">Minha Conta</h3>
+                </div>
+                <!-- /.login-logo -->
+                <div class="login-box-body">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs pull-right">
+                            <li class="active"><a href="#enderecos" data-toggle="tab">Endereços</a></li>
+                            <li><a href="#cestas" data-toggle="tab">Cestas</a></li>
+                            <li><a href="#dados" data-toggle="tab">Dados Cadastrais</a></li>
+                            <li><a href="#cartoes" data-toggle="tab">Cartões de Crédito</a></li>
+                            <li class="pull-left header"><i class="fa fa-user-circle"></i> Painel do Cliente </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="enderecos">
+                                <?php include "endereco-tabela.php"?>
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="cestas">
+                                2
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="dados">
+                                3
+                            </div>
+                            <div class="tab-pane" id="cartoes">
+                                4
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+
+
+
+                </div>
+                <!-- /.login-box-body -->
+            </div><!-- /.login-box -->
         </div>
-		<div class="col-md-12">
-			<ul class="nav nav-tabs">
-				<li class="disabled">
-					<a href="#">Cestas</a>
-				</li>
-				<li class="active">
-					<a href="#">Enderecos</a>
-				</li>
-				<li class="disabled">
-					<a href="#">Dados cadastrais</a>
-				</li>				
-			</ul>
-				<div id="top" class="row">
-					
-					<div class="col-sm-12">
-						<a href="../endereco-formulario.php" class="btn btn-primary pull-right h2">Novo endereco</a>
-					</div>
-				</div> 
-			<?php include("endereco-lista.php"); ?>
-		</div>
-	</div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-wrapper -->
 
 
 
-<?php include("rodape.php"); ?>
+
+
+
+
+
+
+
+<?php include("footer.php");

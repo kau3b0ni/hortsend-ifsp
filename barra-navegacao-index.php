@@ -14,8 +14,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Inscreva-se</a></li>
-                        <li><a href="#">Entrar</a></li>
+                        <li><a href="cliente-cadastro.php">Inscreva-se</a></li>
+                        <li><a href="login.php">Entrar</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

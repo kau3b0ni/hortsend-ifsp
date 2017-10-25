@@ -1,7 +1,14 @@
 <?php
 require_once("controle-sessao.php");
 include("head.php");
-include(carrega_navegacao($_SESSION['usuario_logado']['nivel_acesso']));
+
+//escolhe barra
+if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
+    include(carrega_barra_navegacao($_SESSION['usuario_logado']['nivel_acesso']));
+}else{
+    include("barra-navegacao-index.php");
+}
+
 ?>
 
 
@@ -14,7 +21,7 @@ include(carrega_navegacao($_SESSION['usuario_logado']['nivel_acesso']));
                 <h1 class="display-3">Bem vindo a HortSend!</h1>
                 <p class="lead">Produtos de qualidade direto do fornecedor para você e o melhor: SEM PRECISAR SAIR DE CASA! <br>
                                 Cadastre-se, monte sua cesta e aproveite</p>
-                <a href="inscrevase.php" class="btn btn-primary btn-lg">Comece agora!</a>
+                <a href="cliente-cadastro.php" class="btn btn-primary btn-lg">Comece agora!</a>
             </header>
 
             <!-- Main content -->

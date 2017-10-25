@@ -1,6 +1,6 @@
 <?php
 include("head.php");
-include("navegacao-index.php");
+include("barra-navegacao-index.php");
 require_once("controle-sessao.php");
 ?>
 

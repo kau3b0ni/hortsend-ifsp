@@ -1,4 +1,5 @@
 <?php
+require_once ("controller/clienteController.php");
 session_start();
 
 function mostra_alerta($msg,$tipo){
@@ -14,11 +15,14 @@ function limpa_alerta(){
 function logon_usuario($id,$nivel){
     $_SESSION["usuario_logado"]["usuario_id"]   = $id;
     $_SESSION["usuario_logado"]["nivel_acesso"] = $nivel;
+    if($nivel == 2){
+        $_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)[0]->id_cliente;
+    }
 }
 
-function carrega_navegacao($nivel){
+function carrega_barra_navegacao($nivel){
     if($nivel==2){
-        return "navegacao-cliente.php";
+        return "barra-navegacao-cliente.php";
     }
 }
 
