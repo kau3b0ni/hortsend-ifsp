@@ -8,20 +8,7 @@
 	private $telefone_contato;
 	private $usuario_id;
 
-     /**
-      * Cliente constructor.
-      * @param $nome
-      * @param $cpf
-      * @param $telefone_contato
-      * @param $usuario_id
-      */
-     public function __construct($nome, $cpf, $telefone_contato, $usuario_id)
-     {
-         $this->nome = $nome;
-         $this->cpf = $cpf;
-         $this->telefone_contato = $telefone_contato;
-         $this->usuario_id = $usuario_id;
-     }
+
 
      /**
       * @return mixed
@@ -30,6 +17,8 @@
      {
          return $this->id;
      }
+
+
 
      /**
       * @param mixed $id

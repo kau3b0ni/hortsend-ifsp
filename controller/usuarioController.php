@@ -1,7 +1,5 @@
 <?php
-require_once("../config/conexao.php");
-require_once("../model/Usuario.php");
-require_once("../alerta-sessao.php");
+
 
 
 function insereUsuario(Usuario $usuario) {

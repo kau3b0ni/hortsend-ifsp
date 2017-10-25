@@ -1,11 +1,11 @@
 <?php
-require_once("../config/conexao.php");
-require_once("../model/Cliente.php");
+
 
 function insereCliente(Cliente $cliente) {
     try {
         $database = new Conexao();
         $db = $database->openConnection();
+
 
         $stmt = $db->prepare("INSERT INTO cliente(nome_cliente, cpf_cliente, telefone_contato, usuario_id) VALUES (?,?,?,?)") ;
 
