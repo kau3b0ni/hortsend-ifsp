@@ -1,6 +1,6 @@
 <?php
 require_once("../cabecalho-adm.php");
-require_once("../alerta-sessao.php");
+require_once("../controle-sessao.php");
 ?>
 
 

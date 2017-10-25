@@ -2,7 +2,7 @@
 require_once("../cabecalho-adm.php");
 require_once("../controller/produtoController.php");
 require_once("../model/Produto.php");
-require_once("../alerta-sessao.php");
+require_once("../controle-sessao.php");
 ?>
             
     <div id="main" class="container-fluid" style="margin-top: 50px">

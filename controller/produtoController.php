@@ -1,7 +1,7 @@
 <?php
 require_once("../config/conexao.php");
 require_once("../model/Produto.php");
-require_once("../alerta-sessao.php");
+require_once("../controle-sessao.php");
 
 
 function insereProduto(Produto $produto) {

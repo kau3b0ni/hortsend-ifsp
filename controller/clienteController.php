@@ -5,10 +5,8 @@ function insereCliente(Cliente $cliente) {
     try {
         $database = new Conexao();
         $db = $database->openConnection();
-
-
-        $stmt = $db->prepare("INSERT INTO cliente(nome_cliente, cpf_cliente, telefone_contato, usuario_id) VALUES (?,?,?,?)") ;
-
+        $stmt = $db->prepare("INSERT INTO cliente (nome_cliente,cpf_cliente,telefone_contato,usuario_id) VALUES (?,?,?,?)") ;
+        //o primeiro parametro do método bindValue equivale a posicao na qual deve ser inserido conforme a query
         $stmt->bindValue(1, $cliente->getNome());
         $stmt->bindValue(2, $cliente->getCpf());
         $stmt->bindValue(3, $cliente->getTelefoneContato());
@@ -16,14 +14,33 @@ function insereCliente(Cliente $cliente) {
 
 
         if($stmt->execute()){
-
             if($stmt->rowCount()>0){
-                echo ("O administrador foi adicionado.");
-            } else {
-                mostra_alerta("Não foi possível executar a operação!","danger");
+                mostra_alerta("O cliente foi adicionado.","success");
             }
         }
-        //return header('location:produto-lista.php');
+
+    } catch (PDOException $e) {
+        $erro =  "Problema com a conexão: " . $e->getMessage();
+        mostra_alerta($erro,"danger");
+    }
+    //return header('location:cliente-lista.php');
+    $db = $database->closeConnection();
+}
+
+function verificaCpf($cpf){
+
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+
+        $stmt = $db->prepare("SELECT * FROM cliente WHERE cpf_cliente = ?");
+        $stmt->bindParam(1, $cpf);
+
+        if($stmt->execute()){
+            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+                return $resultado;
+            }
+        }
 
     } catch (PDOException $e) {
         echo "Problema com a conexão: " . $e->getMessage();
@@ -32,5 +49,6 @@ function insereCliente(Cliente $cliente) {
     $db = $database->closeConnection();
 
 }
+
 
 ?>

@@ -1,10 +1,23 @@
-<?php include("head.php")?>
-<?php include("navegacao-index.php") ?>
+<?php
+include("head.php");
+include("navegacao-index.php");
+require_once("controle-sessao.php");
+?>
 
 
     <!-- Full Width Column -->
     <div class="content-wrapper">
         <div class="container">
+            <?php
+            if (isset($_SESSION["mensagem"])) {
+                ?>
+                <div class="alert alert-<?= $_SESSION["tipo"] ?>">
+                    <strong><?= $_SESSION["mensagem"] ?></strong>
+                </div>
+                <?php
+            }
+            limpa_alerta();
+            ?>
             <div class="login-box">
                 <div class="login-logo">
                     <b>Login</b></a>
@@ -13,13 +26,13 @@
                 <div class="login-box-body">
                     <p class="login-box-msg">Entre com seus dados de login</p>
 
-                    <form action="../../index2.html" method="post">
+                    <form action="efetua-login.php" method="post">
                         <div class="form-group has-feedback">
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" name="senha" placeholder="Password">
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
                         <div class="row">

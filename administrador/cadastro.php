@@ -1,5 +1,5 @@
 <?php
-require_once("../alerta-sessao.php");
+require_once("../controle-sessao.php");
 ?>	
 <?php include("../cabecalho.php"); ?>
 

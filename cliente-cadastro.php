@@ -1,9 +1,24 @@
-<?php include("head.php") ?>
-<?php include("navegacao-index.php") ?>
+<?php
+include("head.php");
+include("navegacao-index.php");
+require_once("controle-sessao.php");
+
+?>
+
 
     <!-- Full Width Column -->
     <div class="content-wrapper">
         <div class="container">
+            <?php
+            if (isset($_SESSION["mensagem"])) {
+                ?>
+                <div class="alert alert-<?= $_SESSION["tipo"] ?>">
+                    <strong><?= $_SESSION["mensagem"] ?></strong>
+                </div>
+                <?php
+            }
+            limpa_alerta();
+            ?>
             <div class="login-box">
                 <div class="login-logo">
                     <b>Cadastre-se</b></a>

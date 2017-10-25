@@ -1,5 +1,9 @@
-<?php include("head.php")?>
-<?php include("navegacao-index.php") ?>
+<?php
+require_once("controle-sessao.php");
+include("head.php");
+include(carrega_navegacao($_SESSION['usuario_logado']['nivel_acesso']));
+?>
+
 
 
     <!-- Full Width Column -->
