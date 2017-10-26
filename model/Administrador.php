@@ -1,41 +1,73 @@
 <?php
 
- class Administrador {
+ class Administrador
+ {
 
-	private $matricula;
-	private $nome;
-	private $usuario_id;
+     private $matricula;
+     private $nome;
+     private $usuario_id;
 
-	function __construct($matricula, $nome, $usuario_id) {
-		$this->nome = $nome;
-		$this->nome = $nome;
-		$this->usuario_id = $usuario_id;						
-	}
+     /**
+      * Administrador constructor.
+      * @param $nome
+      * @param $usuario_id
+      */
+     public function __construct($nome, $usuario_id)
+     {
+         $this->nome = $nome;
+         $this->usuario_id = $usuario_id;
+     }
 
-	public function getMatricula() {
-		return $this->matricula;
-	}
+     /**
+      * @return mixed
+      */
+     public function getMatricula()
+     {
+         return $this->matricula;
+     }
 
-	public function setMatricula($matricula) {	
-		$this->matricula = $matricula;
-	}
+     /**
+      * @param mixed $matricula
+      */
+     public function setMatricula($matricula)
+     {
+         $this->matricula = $matricula;
+     }
 
-	public function getNome() {
-		return $this->nome;
-	}
+     /**
+      * @return mixed
+      */
+     public function getNome()
+     {
+         return $this->nome;
+     }
 
-	public function setNome($nome) {
-		$this->nome = $nome;
-	}
-	
-	public function getUsuarioId() {
-		return $this->usuario_id;
-	}
+     /**
+      * @param mixed $nome
+      */
+     public function setNome($nome)
+     {
+         $this->nome = $nome;
+     }
 
-	public function setUsuarioId($usuario_id) {
-		$this->usuario_id = $usuario_id;
-	}
+     /**
+      * @return mixed
+      */
+     public function getUsuarioId()
+     {
+         return $this->usuario_id;
+     }
 
-}
+     /**
+      * @param mixed $usuario_id
+      */
+     public function setUsuarioId($usuario_id)
+     {
+         $this->usuario_id = $usuario_id;
+     }
 
+
+
+
+ }
 ?>

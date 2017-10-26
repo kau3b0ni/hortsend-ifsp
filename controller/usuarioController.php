@@ -11,15 +11,11 @@ function insereUsuario(Usuario $usuario) {
         $stmt->bindValue(2, $usuario->getSenha());
         $stmt->bindValue(3, $usuario->getNivelAcesso());
 
-
-		if($stmt->execute()){
+        if($stmt->execute()){
 			 if($stmt->rowCount()>0){
 				return $db->lastInsertId();
 			 }
          }
-
-
-		
 
     } catch (PDOException $e) {
         if($e->getCode() == 23000){
@@ -27,10 +23,11 @@ function insereUsuario(Usuario $usuario) {
                 $msg = "Não foi possível adicionar. O e-mail " . $usuario->getEmail() . " já existe.";
                 mostra_alerta($msg,"danger");
             }
-            //mostra_alerta("Não foi possível adicionar. Erro: " . $e->getMessage(),"danger");
+            mostra_alerta("Não foi possível adicionar. Erro: " . $e->getMessage(),"danger");
         }else{
             mostra_alerta("Problema com a conexão. Erro: " . $e->getMessage(),"danger");
-        } 
+
+        }
                    
     }
 

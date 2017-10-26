@@ -1,5 +1,5 @@
 <?php
-require_once("../controller/administradorController.php");
+require_once("../controller/admController.php");
 require_once("../model/Administrador.php");
 
 $matricula = $_POST['matricula'];

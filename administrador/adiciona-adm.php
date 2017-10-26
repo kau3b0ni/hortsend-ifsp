@@ -1,6 +1,6 @@
 
 <?php 
-require_once("../controller/administradorController.php");
+require_once("../controller/admController.php");
 require_once("../controller/usuarioController.php");
 require_once("../model/Administrador.php");
 require_once("../model/Usuario.php");
@@ -17,7 +17,7 @@ $usuario = new Usuario($email, $senha, $nivel_acesso);
 if(insereUsuario($usuario)==1){
     $usuario_id = buscaUsuarioId($email);
     $administrador = new Administrador($matricula, $nome, $usuario_id);
-    insereAdministrador($administrador);
+    insereAdm($administrador);
     mostra_alerta("O administrador cadastrado","warning");
     header('location:painel.php');
 }else {

@@ -1,7 +1,5 @@
 <?php
-require_once("../config/conexao.php");
-require_once("../model/Produto.php");
-require_once("../controle-sessao.php");
+
 
 
 function insereProduto(Produto $produto) {
@@ -9,26 +7,28 @@ function insereProduto(Produto $produto) {
     try {     
 		$database = new Conexao();
         $db = $database->openConnection();        
-        $stmt = $db->prepare("INSERT INTO produto (nome_produto,preco_custo,preco_venda,unidade,demanda_geral) VALUES (?,?,?,?,?)") ;
+        $stmt = $db->prepare("INSERT INTO produto (nome_produto,preco_custo,preco_venda,unidade,demanda_geral,produto_cooperativa_id) VALUES (?,?,?,?,?,?)") ;
         //o primeiro parametro do método bindValue equivale a posicao na qual deve ser inserido conforme a query
 		$stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getPrecoCusto());
         $stmt->bindValue(3, $produto->getPrecoVenda());
         $stmt->bindValue(4, $produto->getUnidade());
-        $stmt->bindValue(5, 100);
+        $stmt->bindValue(5, $produto->getDemanda());
+        $stmt->bindValue(6, $produto->getPcId());
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){
-				mostra_alerta("O produto foi adicionado.","success");
+				//mostra_alerta("O produto foi adicionado.","success");
+                 echo("OK");
 			 } else {
-				mostra_alerta("Não foi possível executar a operação!","danger");
+				//mostra_alerta("Não foi possível executar a operação!","danger");
+                 echo("NAO");
 			 }
-		 }    
-		 return header('location:produto-lista.php');
-		
+		 }
 
     } catch (PDOException $e) {
-        echo "Problema com a conexão: " . $e->getMessage();
+        //echo "Problema com a conexão: " . $e->getMessage();
+        echo($e->getMessage());
     }
 	$db = $database->closeConnection();
 }

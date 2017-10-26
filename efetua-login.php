@@ -19,6 +19,9 @@ if(!empty($usuario)) {
         header("location: login.php");
     }
     //print_r($_SESSION['usuario_logado']);
-    header("location:index.php");
+    if($_SESSION['usuario_logado']['nivel_acesso'] == 1){
+        header("location:adm-dashboard.php");
+    } else
+        header("location:index.php");
 }
 

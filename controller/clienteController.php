@@ -14,7 +14,7 @@ function insereCliente(Cliente $cliente) {
 
         if($stmt->execute()){
             if($stmt->rowCount()>0){
-                mostra_alerta("O cliente foi adicionado.","success");
+                mostra_alerta("Seu cadastro foi efetuado. Faça login.","success");
             }
         }
 

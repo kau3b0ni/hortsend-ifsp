@@ -17,13 +17,18 @@ function logon_usuario($id,$nivel){
     $_SESSION["usuario_logado"]["nivel_acesso"] = $nivel;
     if($nivel == 2){
         $_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)[0]->id_cliente;
+    } else if ($nivel==1) {
+        //$_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)[0]->id_cliente;
     }
 }
 
 function carrega_barra_navegacao($nivel){
     if($nivel==2){
         return "barra-navegacao-cliente.php";
+    } else if ($nivel==1) {
+        return "barra-navegacao-adm.php";
     }
+
 }
 
 function logout() {
