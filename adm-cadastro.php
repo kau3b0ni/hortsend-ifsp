@@ -2,6 +2,8 @@
 require_once("controle-sessao.php");
 include("head.php");
 
+//escolhe barra
+if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
     include(carrega_barra_navegacao($_SESSION['usuario_logado']['nivel_acesso']));
 }else{
     include("barra-navegacao-index.php");

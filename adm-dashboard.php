@@ -51,7 +51,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="prod_cooperativa">
-                                <?php include "adm-produtos-cooperativa.php" ?>
+                                <?php include "adm-produ\tos-cooperativa.php" ?>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="fornecedores">

@@ -14,7 +14,9 @@ $venda = 0;
 $pc_id = $_POST['pc_id'];
 
 $produto = new Produto($nome_produto, $custo, $venda, $unidade, $demanda, $pc_id);
+
 insereProduto($produto);
+header("location:adm-dashboard.php#produtos");
 
 
 

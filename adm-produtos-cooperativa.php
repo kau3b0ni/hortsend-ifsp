@@ -16,7 +16,7 @@
             <td><?php echo $produto->id ?></td>
             <td><?php echo $produto->nome ?></td>
             <td><?php echo $produto->unidade?></td>
-            <td><?php echo $produto->valor ?></td>
+            <td><?php echo number_format($produto->valor,2,",",".") ?></td>
             <td class="actions">
                 <form action="adm-produto-cadastro.php" method="post">
                     <input type="hidden"    name="pc_id"        value="<?php echo $produto->id ?>">

@@ -30,7 +30,7 @@ function listaProdutosCooperativa() {
 function buscaProdutoCooperativa($id){
 
     try {
-        $database = new Conexao();
+        $database = new ConexaoCooperativa();
         $db = $database->openConnection();
 
         $stmt = $db->prepare("SELECT * FROM produto_coopersul WHERE id = $id");

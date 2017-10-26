@@ -27,11 +27,11 @@ if(!empty($em[0])){
 }else{
 
     $usuario_id = insereUsuario($usuario);
-    //echo $usuario_id;
+    echo $usuario_id;
 
     $adm = new Administrador($nome, $usuario_id);
     insereAdm($adm);
-    header("location:index.php");
+    header("location:login.php");
 }
 
 //$usuario_id = insereUsuario($usuario);

@@ -143,7 +143,7 @@ function removeProduto($id) {
 			   mostra_alerta("Não foi possível executar a operação!","danger");
 			}
 		}    
-		return header('location:produto-lista.php');	
+
 
 	} catch (PDOException $e) {
 		echo "Problema com a conexão: " . $e->getMessage();

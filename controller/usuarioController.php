@@ -24,8 +24,10 @@ function insereUsuario(Usuario $usuario) {
                 mostra_alerta($msg,"danger");
             }
             mostra_alerta("Não foi possível adicionar. Erro: " . $e->getMessage(),"danger");
+            //echo $e->getMessage();
         }else{
             mostra_alerta("Problema com a conexão. Erro: " . $e->getMessage(),"danger");
+           //echo $e->getMessage();
 
         }
                    
