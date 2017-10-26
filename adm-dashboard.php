@@ -51,7 +51,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="prod_cooperativa">
-                                <?php include "adm-produtos-cooperativa.php" ?>
+
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="fornecedores">
@@ -65,7 +65,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                                 cestas
                             </div>
                             <div class="tab-pane" id="configuracoes">
-                                configuracoes
+                                <?php include "adm-config.php" ?>
                             </div>
                             <div class="tab-pane" id="relatorios">
                                 relatorios
