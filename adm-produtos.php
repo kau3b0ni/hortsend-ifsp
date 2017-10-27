@@ -40,9 +40,7 @@
         endforeach;
 
         ?>
-
-
-
     </table>
+
 
 </div>

@@ -1,5 +1,5 @@
 <?php
-include("head.php");
+include("head-para-formularios.php");
 include("barra-navegacao-index.php");
 require_once("controle-sessao.php");
 
@@ -62,6 +62,7 @@ require_once("controle-sessao.php");
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-primary btn-block btn-flat">Enviar</button>
                             </div>
+
                             <!-- /.col -->
                         </div>
                     </form>
@@ -76,5 +77,5 @@ require_once("controle-sessao.php");
     </div>
     <!-- /.content-wrapper -->
 
-<?php include("footer.php");
+<?php include("footer-para-formularios.php");
 

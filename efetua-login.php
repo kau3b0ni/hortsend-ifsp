@@ -21,7 +21,7 @@ if(!empty($usuario)) {
     //print_r($_SESSION['usuario_logado']);
     if($_SESSION['usuario_logado']['nivel_acesso'] == 1){
         header("location:adm-dashboard.php");
-    } else
-        header("location:index.php");
+    } else if($_SESSION['usuario_logado']['nivel_acesso'] == 2)
+        header("location:cliente-painel.php");
 }
 

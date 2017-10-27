@@ -5,7 +5,7 @@
             <th>Nome</th>
             <th>Unidade</th>
             <th>Valor R$</th>
-            <th style="width: 15%"></th>
+            <th style="width: 15%">Adicionar ao sistema</th>
         </tr>
         <?php
         $produtos = listaProdutosCooperativa();
@@ -23,7 +23,7 @@
                     <input type="hidden"    name="pc_nome"      value="<?php echo $produto->nome ?>">
                     <input type="hidden"    name="pc_unidade"   value="<?php echo $produto->unidade ?>">
                     <input type="hidden"    name="pc_valor"     value="<?php echo $produto->valor ?>">
-                    <button class="btn btn-primary btn-sm">Adicionar ao sistema </button>
+                    <button style="width: 60%; align-content: center;" class="btn btn-primary btn-sm fa fa-plus-circle"></button>
                 </form>
             </td>
         </tr>

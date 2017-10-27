@@ -13,10 +13,16 @@ $custo = $_POST['pc_valor'];
 $venda = 0;
 $pc_id = $_POST['pc_id'];
 
-$produto = new Produto($nome_produto, $custo, $venda, $unidade, $demanda, $pc_id);
+if(empty(verificaProdutoCooperativa($pc_id))){
+    $produto = new Produto($nome_produto, $custo, $venda, $unidade, $demanda, $pc_id);
+    insereProduto($produto);
+    header("location:adm-dashboard.php#produtos");
+}else
+    mostra_alerta("Não foi possível realizar a operação. Produto já existe.","warning");
+    header("location:adm-dashboard.php#prod_cooperativa");
 
-insereProduto($produto);
-header("location:adm-dashboard.php#produtos");
+
+
 
 
 

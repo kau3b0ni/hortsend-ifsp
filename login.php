@@ -1,5 +1,5 @@
 <?php
-include("head.php");
+include("head-para-formularios.php");
 include("barra-navegacao-index.php");
 require_once("controle-sessao.php");
 ?>
@@ -65,4 +65,4 @@ require_once("controle-sessao.php");
     </div>
     <!-- /.content-wrapper -->
 
-<?php include("footer.php");
+<?php include("footer-para-formularios.php");

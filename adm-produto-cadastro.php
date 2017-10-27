@@ -1,6 +1,6 @@
 <?php
 require_once("controle-sessao.php");
-include("head.php");
+include("head-para-formularios.php");
 
 //escolhe barra
 if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
@@ -83,5 +83,5 @@ $pc_valor = $_POST['pc_valor'];
     </div>
     <!-- /.content-wrapper -->
 
-<?php include("footer.php");
+<?php include("footer-para-formularios.php");
 

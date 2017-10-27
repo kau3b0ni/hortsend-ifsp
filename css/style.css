@@ -1,0 +1,48 @@
+/* Cor dos Botões */
+.btn-color {
+    background-color: #0275d8!important;
+}
+
+@media only screen and (max-width: 768px) {
+    .post-title {
+        margin-top: 1rem;
+    }
+}
+        
+@media only screen and (max-width: 768px) {
+    .read-more {
+        text-align: center;
+    }
+}
+        
+.extra-margin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+main {
+    margin-top: 1rem;
+}
+
+
+
+/* Lista de Empresas */
+
+main .card {
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+
+/* Pontos Turísticos */
+    
+.lead {
+   	text-align: justify;
+}
+
+
+/* Empresa */
+.centraliza{
+    margin:0 auto;
+}
+

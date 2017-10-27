@@ -31,7 +31,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                     <b>Cadastro de Endereço</b></a>
                 </div>
                 <!-- /.login-logo -->
-                <div class="login-box-body">
+                <div class="box-default">
                     <form action="endereco-adicionar.php" method="post">
                         <div class="form-group has-feedback">
                             <input type="text" class="form-control" id="rua" name="rua" placeholder="Nome da Rua" required="requiored">
@@ -84,16 +84,6 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </select>
                             <span class="form-control-feedback"></span>
                         </div>
-
-
-
-
-
-
-
-
-
-
 
                         <div class="row">
                             <div class="col-xs-4">

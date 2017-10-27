@@ -44,6 +44,6 @@
         ?>
     </table>
     <div class="col-sm-12 pull-right">
-        <a style="width: 15%;" href="endereco-cadastro.php"" type="button" class="btn btn-primary">Adicionar Endereço</a>
+        <a style="width: 15%;" href="endereco-cadastro.php" type="button" class="btn btn-primary">Adicionar Endereço</a>
     </div>
 </div>

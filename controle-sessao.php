@@ -1,5 +1,6 @@
 <?php
 require_once ("controller/clienteController.php");
+require_once ("controller/admController.php");
 session_start();
 
 function mostra_alerta($msg,$tipo){
@@ -18,7 +19,7 @@ function logon_usuario($id,$nivel){
     if($nivel == 2){
         $_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)[0]->id_cliente;
     } else if ($nivel==1) {
-        //$_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)[0]->id_cliente;
+        $_SESSION["usuario_logado"]["matricula"] = buscaAdmId($id)[0]->matricula;
     }
 }
 

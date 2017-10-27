@@ -21,6 +21,8 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
             <?php
             if (isset($_SESSION["mensagem"])) {
                 ?>
+                <br>
+                <br>
                 <div class="alert alert-<?= $_SESSION["tipo"] ?>">
                     <strong><?= $_SESSION["mensagem"] ?></strong>
                 </div>
@@ -51,8 +53,8 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="prod_cooperativa">
-                                <?php include "adm-produ\tos-cooperativa.php" ?>
-                            </div>
+                                <?php include "adm-produtos-cooperativa.php" ?>
+                            </div
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="fornecedores">
                                 fornecedores

@@ -18,11 +18,11 @@ function insereProduto(Produto $produto) {
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){
-				//mostra_alerta("O produto foi adicionado.","success");
-                 echo("OK");
+				mostra_alerta("O produto foi adicionado.","success");
+                 //echo("OK");
 			 } else {
-				//mostra_alerta("Não foi possível executar a operação!","danger");
-                 echo("NAO");
+				mostra_alerta("Não foi possível executar a operação!","danger");
+                 //echo("NAO");
 			 }
 		 }
 
@@ -122,6 +122,34 @@ function buscaProduto($id){
 	}
 
 		$db = $database->closeConnection();	
+
+}
+
+function verificaProdutoCooperativa($id){
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+
+        $stmt = $db->prepare("SELECT * FROM produto WHERE produto_cooperativa_id = $id");
+        $stmt->bindParam(1, $id);
+
+        if($stmt->execute()){
+
+            while($resultado = $stmt->fetch(PDO::FETCH_OBJ)) {
+                return $resultado;
+            }
+
+        } else {
+            echo "Não foi possível exexutar a operação!";
+        }
+
+
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
 
 }
   

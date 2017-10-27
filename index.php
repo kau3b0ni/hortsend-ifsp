@@ -16,7 +16,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
     <!-- Full Width Column -->
     <div class="content-wrapper">
         <div class="container">
-
+            <br><br>
             <header class="jumbotron">
                 <h1 class="display-3">Bem vindo a HortSend!</h1>
                 <p class="lead">Produtos de qualidade direto do fornecedor para você e o melhor: SEM PRECISAR SAIR DE CASA! <br>

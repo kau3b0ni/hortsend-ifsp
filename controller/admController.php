@@ -29,13 +29,27 @@ function insereAdm(Administrador $administrador) {
 
 }
 
+function buscaAdmId($usuario_id){
 
-/*
-function buscaAdministrador($conexao, $email) {
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
 
-	$query = "select * from administrador where email = '$email'";
-	
-	return mysqli_query($conexao, $query);
-}*/
+        $stmt = $db->prepare("SELECT * FROM admnistrador WHERE usuario_id = $usuario_id");
+        $stmt->bindParam(1, $cpf);
+
+        if($stmt->execute()){
+            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+                return $resultado;
+            }
+        }
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
+
+}
 
 ?>
