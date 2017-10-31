@@ -1,7 +1,7 @@
 <?php 
 
 function carregaClasse($nomeDaClasse) {
-	require_once("class/".$nomeDaClasse.".php");
+	require_once("class/".$nomeDaClasse."imagemController.php");
 }
 
 spl_autoload_register("carregaClasse");

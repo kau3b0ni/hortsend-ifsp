@@ -11,6 +11,8 @@ require_once("controle-sessao.php");
             <?php
             if (isset($_SESSION["mensagem"])) {
                 ?>
+                <br>
+                <br>
                 <div class="alert alert-<?= $_SESSION["tipo"] ?>">
                     <strong><?= $_SESSION["mensagem"] ?></strong>
                 </div>

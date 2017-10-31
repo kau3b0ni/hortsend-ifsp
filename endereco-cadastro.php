@@ -1,4 +1,4 @@
-<?php
+"<?php
 include("head.php");
 require_once("controle-sessao.php");
 

@@ -21,6 +21,8 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
             <?php
             if (isset($_SESSION["mensagem"])) {
                 ?>
+                <br>
+                <br>
                 <div class="alert alert-<?= $_SESSION["tipo"] ?>">
                     <strong><?= $_SESSION["mensagem"] ?></strong>
                 </div>

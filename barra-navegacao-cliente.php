@@ -15,7 +15,7 @@
                 <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="cliente-painel.php">Meu HortSend</a></li>
-                        <li><a href="cliente-cestas.php">Minhas cestas</a></li>
+                        <li><a href="cesta-iniciar.php">Montar cesta</a></li>
                         <li><a href="produtos.php">Produtos</a></li>
                         <li><a href="efetua-logout.php">Sair</a></li>
                     </ul>

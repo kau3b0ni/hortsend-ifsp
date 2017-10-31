@@ -1,4 +1,4 @@
-<body class="hold-transition skin-yellow layout-top-nav">
+<body class="hold-transition skin-yellow-light layout-top-nav">
 <div class="wrapper">
 
     <header class="main-header">

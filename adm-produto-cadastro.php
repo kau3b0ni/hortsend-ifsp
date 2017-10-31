@@ -36,7 +36,7 @@ $pc_valor = $_POST['pc_valor'];
                 </div>
                 <!-- /.login-logo -->
                 <div class="login-box-body">
-                    <form action="adm-produto-adicionar.php" method="post">
+                    <form action="adm-produto-adicionar.php" method="post" enctype="multipart/form-data">
 
                         <div class="form-group has-feedback">
                             <input type="text" class="form-control" disabled id="nome" value="<?php echo $pc_nome ?>">
@@ -56,6 +56,11 @@ $pc_valor = $_POST['pc_valor'];
                             <input type="text" class="form-control" id="unidade" disabled value="<?php echo $pc_unidade ?>">
                             <span class="glyphicon glyphicons-coins form-control-feedback"></span>
                         </div>
+
+                        <div class="form-group has-feedback">
+                            <input type="file" name="arquivo">
+                        </div>
+
 
                         <div class="row">
                             <div class="col-xs-4">

@@ -18,8 +18,7 @@ function insereProduto(Produto $produto) {
 
 		if($stmt->execute()){
 			 if($stmt->rowCount()>0){
-				mostra_alerta("O produto foi adicionado.","success");
-                 //echo("OK");
+				return $db->lastInsertId();
 			 } else {
 				mostra_alerta("Não foi possível executar a operação!","danger");
                  //echo("NAO");
@@ -178,6 +177,8 @@ function removeProduto($id) {
 	}
 	$db = $database->closeConnection();	
 }
+
+
 	
 
     

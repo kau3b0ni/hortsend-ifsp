@@ -7,9 +7,10 @@
             <th>CEP</th>
             <th>Cidade</th>
             <th>UF</th>
+            <th style="width: 8%"></th>
         </tr>
         <?php
-        $enderecos = buscaEndereco($_SESSION["usuario_logado"]["cliente_id"]);
+        $enderecos = buscaEnderecoCliente($_SESSION["usuario_logado"]["cliente_id"]);
         if(empty($enderecos)){
             ?>
             <tr>
@@ -34,7 +35,7 @@
                     <td class="actions">
                         <form action="endereco-remover.php" method="post">
                             <input type="hidden" name="item_id" value="<?php $produto[0]->id ?>">
-                            <button class="btn btn-primary btn-sm">Excluir</button>
+                            <button class="btn btn-danger btn-sm fa fa-eraser">
                         </form>
                     </td>
                 </tr>
@@ -44,6 +45,6 @@
         ?>
     </table>
     <div class="col-sm-12 pull-right">
-        <a style="width: 15%;" href="endereco-cadastro.php" type="button" class="btn btn-primary">Adicionar Endereço</a>
+        <a style="width: 20%;" href="endereco-cadastro.php" type="button" class="btn btn-md btn-primary">Adicionar Endereço</a>
     </div>
 </div>
