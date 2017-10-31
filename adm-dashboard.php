@@ -53,8 +53,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </div>
                             <!-- /.tab-pane -->
 
-
-                            </div
+                            <div class="tab-pane active" id="prod_cooperativa">
                                 <?php include "adm-produtos-cooperativa.php" ?>
                             </div>
 

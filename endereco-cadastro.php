@@ -1,5 +1,5 @@
-"<?php
-include("head.php");
+<?php
+include("head-para-formularios.php");
 require_once("controle-sessao.php");
 
 //escolhe barra
@@ -19,6 +19,8 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
             <?php
             if (isset($_SESSION["mensagem"])) {
                 ?>
+                <br>
+                <br>
                 <div class="alert alert-<?= $_SESSION["tipo"] ?>">
                     <strong><?= $_SESSION["mensagem"] ?></strong>
                 </div>
@@ -111,6 +113,6 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
     </div>
     <!-- /.content-wrapper -->
 
-<?php include("footer.php");
+<?php include("footer-para-formularios.php");
 
 

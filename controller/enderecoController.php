@@ -118,7 +118,7 @@ function escreveEndereco($id){
             $database = new Conexao();
             $db = $database->openConnection();
 
-            $stmt = $db->prepare("SELECT * FROM endereco WHERE id_endereco = $id");
+            $stmt = $db->prepare("SELECT * FROM endereco WHERE id_endereco = ?");
             $stmt->bindParam(1, $id);
 
             if($stmt->execute()){

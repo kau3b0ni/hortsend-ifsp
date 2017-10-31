@@ -1,6 +1,7 @@
 <?php
 require_once("controle-sessao.php");
 require_once("controller/enderecoController.php");
+require_once("controller/cartaoController.php");
 require_once("config/conexao.php");
 if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
     include("head.php");
@@ -57,7 +58,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                                 3
                             </div>
                             <div class="tab-pane" id="cartoes">
-                                4
+                                <?php include "cartao-tabela.php"?>
                             </div>
                             <!-- /.tab-pane -->
                         </div>

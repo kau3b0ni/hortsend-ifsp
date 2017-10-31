@@ -2,7 +2,7 @@
 
 class Conexao {
 
-    private $server = "mysql:host=localhost:3306;dbname=hortsend";
+    private $server = "mysql:host=localhost:3307;dbname=hortsend";
     
     private $user = "root";
    

@@ -152,7 +152,7 @@ $cesta = $_SESSION['cesta'];
             <div class="col-lg-12" >
                 <div  class="btn-group-lg">
                     <a  href="cliente-finalizar-cesta-etapa-3.php" class="btn btn-md btn-primary btn-flat grey">Voltar</a>
-                    <a href="cliente-finalizar-cesta-etapa-2.php" class="btn btn-primary btn-flat">Confirmar</a>
+                    <a href="cesta-confirmar.php" class="btn btn-primary btn-flat">Confirmar</a>
                 </div>
                 <br>
             </div>
