@@ -37,7 +37,7 @@ function buscaProdutoCooperativa($id){
         $stmt->bindParam(1, $cpf);
 
         if($stmt->execute()){
-            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+            while($resultado = $stmt->fetch(PDO::FETCH_OBJ)) {
                 return $resultado;
             }
         }

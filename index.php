@@ -69,7 +69,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                                 Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis. Quem num gosta di mim que vai caçá sua turmis!
                             </p>
                             <p>
-                                <a class="btn btn-primary" href="fornecedorCadastro.php">Cadastre-se</a>
+                                <a class="btn btn-primary" href="fornecedor-cadastro.php">Cadastre-se</a>
                         </div>
                     </div>
                 </div>

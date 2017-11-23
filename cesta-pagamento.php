@@ -54,18 +54,19 @@ $cliente_id =  $_SESSION['usuario_logado']['cliente_id'];
                                 <?php $cartoes = buscaCartaoCliente($cliente_id);
                                 foreach ($cartoes as $cartao) :
                                     ?>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+                                    <form action="cesta-processar-pagamento.php" method="post"></form>
+                                        <div class="col-md-6">
+                                            <div class="form-group">        '
+                                              
+                                                <input name="id_cartao" type="radio" id="radio11" checked="checked" value="<?php echo $cartao->id_cartao ?>">
+                                                <label for="radio11"><?php echo $cartao->nome . " - " . $cartao->numero . " - " . $cartao->validade?></label>
+                                                <button type="submit" class="btn btn-md btn-primary btn-flat">Pagar</a>
 
-                                            <input name="id_endereco" type="radio" id="radio11" checked="checked" value="<?php echo $cartao->id_cartao ?>">
-                                            <label for="radio11"><?php echo $cartao->nome . " - " . $cartao->numero . " - " . $cartao->validade?></label>
+                                            </div>
 
                                         </div>
-                                    </div>
+                                    </form>
                                 <?php endforeach;?>
-                                <a  href="cartao-cadastro.php" class="btn btn-md btn-primary btn-flat">Novo</a>
-
-
                             </div>
 
 
@@ -77,13 +78,13 @@ $cliente_id =  $_SESSION['usuario_logado']['cliente_id'];
                             <hr>
                             <div class="col-lg-12" >
                                 <div  class="btn-group-lg">
-                                    <a  href="cliente-painel.php" class="btn btn-md btn-primary btn-flat grey">Pagar depois</a>
-                                    <button type="submit" class="btn btn-primary btn-flat">Efetuar pagamento</button>
+                                    <a  href="cliente-painel.php#cestas" class="btn btn-md btn-primary btn-flat grey">Pagar depois</a>
+
                                 </div>
                                 <br>
                             </div>
                         </div>
-                    </>
+                </div>
                     <!--/.Botoes-->
 
                     <!--Pagination

@@ -57,8 +57,7 @@ create table produto(
 );
 
 create table produto_fornecedor(
-    id_produto_fornecedor int not null primary key auto_increment,
-    id_produto int not null,
+    id_produto_coo int not null,
     id_fornecedor int not null,
     quantidade_demanda int,
     quantidade_estoque int,

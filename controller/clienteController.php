@@ -55,11 +55,11 @@ function buscaClienteId($usuario_id){
         $database = new Conexao();
         $db = $database->openConnection();
 
-        $stmt = $db->prepare("SELECT * FROM cliente WHERE usuario_id = $usuario_id");
-        $stmt->bindParam(1, $cpf);
+        $stmt = $db->prepare("SELECT * FROM cliente WHERE usuario_id = ?");
+        $stmt->bindParam(1, $usuario_id);
 
         if($stmt->execute()){
-            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+            while($resultado = $stmt->fetch(PDO::FETCH_OBJ)) {
                 return $resultado;
             }
         }

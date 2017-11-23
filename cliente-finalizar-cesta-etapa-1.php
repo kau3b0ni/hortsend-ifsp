@@ -3,6 +3,7 @@ require_once("controle-sessao.php");
 require_once("controller/produtoController.php");
 require_once("controller/cooProdutoControler.php");
 require_once("controller/imagemController.php");
+require_once ("controller/percentualController.php");
 require_once("config/conexao.php");
 require_once("config/conexao_cooperativa.php");
 if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
@@ -56,7 +57,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             <div class="col-md-12">
                                 <div class="row">
                                     <?php
-                                    $margem = 1.8;
+                                    $margem = 1+verPercentual()->percentual_lucro/100;
                                     $qtd_produtos = 0;
                                     $itens = $_SESSION['itens'];
                                     if(!empty($itens)){

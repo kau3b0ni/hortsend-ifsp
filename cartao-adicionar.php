@@ -14,6 +14,7 @@ $codigo = $_POST['codigo'];
 $cartao = new Cartao($id_cliente, $numero, $nome, $validade, $codigo);
 //operadoraVerificaCartao($cartao);
 insereCartao($cartao);
+header("location:cliente-painel.php#cartoes");
 
 
 

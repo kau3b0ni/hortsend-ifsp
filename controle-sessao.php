@@ -2,6 +2,8 @@
 require_once ("controller/clienteController.php");
 require_once ("controller/admController.php");
 require_once ("controller/produtoController.php");
+require_once ("controller/percentualController.php");
+require_once ("controller/fornecedorController.php");
 session_start();
 
 function mostra_alerta($msg,$tipo){
@@ -18,9 +20,11 @@ function logon_usuario($id,$nivel){
     $_SESSION["usuario_logado"]["usuario_id"]   = $id;
     $_SESSION["usuario_logado"]["nivel_acesso"] = $nivel;
     if($nivel == 2){
-        $_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)[0]->id_cliente;
+        $_SESSION["usuario_logado"]["cliente_id"] = buscaClienteId($id)->id_cliente;
     } else if ($nivel==1) {
-        $_SESSION["usuario_logado"]["matricula"] = buscaAdmId($id)[0]->matricula;
+        $_SESSION["usuario_logado"]["matricula"] = buscaAdmId($id)->matricula;
+    } else {
+        $_SESSION["usuario_logado"]["id_fornecedor"] = buscaFornecedor($id)->id_fornecedor;
     }
 }
 
@@ -29,6 +33,8 @@ function carrega_barra_navegacao($nivel){
         return "barra-navegacao-cliente.php";
     } else if ($nivel==1) {
         return "barra-navegacao-adm.php";
+    } else {
+        return "barra-navegacao-fornecedor.php";
     }
 
 }
@@ -70,7 +76,7 @@ function sessao_remover_item($id_produto){
 }
 
 function sessao_calcula_total_itens(){
-    $margem = 1.8;
+    $margem = 1+verPercentual()->percentual_lucro/100;
     $total = 0;
     foreach ($_SESSION['itens'] as $iten) :
         $total+=buscaProduto($iten['id_produto'])->preco_custo * $iten['quantidade'] * $margem;

@@ -2,6 +2,9 @@
 require_once("controle-sessao.php");
 require_once("controller/enderecoController.php");
 require_once("controller/cartaoController.php");
+require_once("controller/cestaController.php");
+require_once("controller/entregaController.php");
+require_once("controller/itemCestaController.php");
 require_once("config/conexao.php");
 if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
     include("head.php");
@@ -11,10 +14,10 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
 }
 
 ?>
-	<?php 
-	
+	<?php
+
 	//$cliente_email = usuarioLogado();
-	
+
 	?>
     <!-- Full Width Column -->
     <div class="content-wrapper">
@@ -51,11 +54,11 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="cestas">
-                                2
+                                <?php include "cliente-cestas-tabela.php" ?>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="dados">
-                                3
+                                dados
                             </div>
                             <div class="tab-pane" id="cartoes">
                                 <?php include "cartao-tabela.php"?>

@@ -7,7 +7,8 @@
  * Time: 01:21
  */
 
-class Cesta {
+class Cesta
+{
     private $id_cesta;
     private $id_cliente;
     private $data_inicial;
@@ -16,9 +17,11 @@ class Cesta {
     private $valor_produtos;
     private $valor_entrega;
     private $valor_total;
+    private $estado;
 
     /**
      * Cesta constructor.
+     * @param $id_cesta
      * @param $id_cliente
      * @param $data_inicial
      * @param $periodo
@@ -26,9 +29,11 @@ class Cesta {
      * @param $valor_produtos
      * @param $valor_entrega
      * @param $valor_total
+     * @param $estado
      */
     public function __construct($id_cliente, $data_inicial, $periodo, $endereco_id, $valor_produtos, $valor_entrega, $valor_total)
     {
+
         $this->id_cliente = $id_cliente;
         $this->data_inicial = $data_inicial;
         $this->periodo = $periodo;
@@ -36,8 +41,8 @@ class Cesta {
         $this->valor_produtos = $valor_produtos;
         $this->valor_entrega = $valor_entrega;
         $this->valor_total = $valor_total;
-    }
 
+    }
 
     /**
      * @return mixed
@@ -166,6 +171,23 @@ class Cesta {
     {
         $this->valor_total = $valor_total;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * @param mixed $estado
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    }
+
 
 
 

@@ -40,7 +40,8 @@ function listaProdutos() {
 	try {
 		$database = new Conexao();
 		$db = $database->openConnection();        
-		$stmt = $db->prepare("SELECT * FROM produto");
+		$stmt = $db->prepare("SELECT * FROM produto
+                                        ORDER BY nome_produto");
 		
 		
 		if($stmt->execute()) {
@@ -178,7 +179,32 @@ function removeProduto($id) {
 	$db = $database->closeConnection();	
 }
 
+function atualizaDemanda($demanda, $id_produto){
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
 
+        $stmt = $db->prepare("UPDATE produto SET demanda_geral = :demanda											 
+												      WHERE id_produto = {$id_produto}");
+
+        $stmt->bindParam(':demanda', $demanda);
+
+        if($stmt->execute()){
+            if($stmt->rowCount()>0){
+                mostra_alerta("Alteração realizada!","success");
+            } else {
+                mostra_alerta("Não foi possível executar a operação!","danger");
+            }
+        }
+        return header('location:produto-lista.php');
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
+
+}
 	
 
     

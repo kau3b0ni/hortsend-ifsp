@@ -41,6 +41,9 @@ foreach ($itens as $item) :
 
     $item_cesta = new ItemCesta($id_cesta, $id_produto, $valor, $quantidade, $nome);
     insereItemCesta($item_cesta);
+    $demanda = buscaProduto($item['id_produto']['demanda_geral']);
+    $demanda += $quantidade;
+    atualizaDemanda($demanda,$id_produto);
 
 endforeach;
 header("location: cesta-pagamento.php");

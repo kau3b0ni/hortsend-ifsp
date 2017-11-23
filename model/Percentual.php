@@ -7,12 +7,13 @@
 	private $administrador_matricula;
 
 
-	function __construct($percentual_lucro, $administrador_matricula) {
+	function __construct($percentual_lucro, $data_modificacao, $administrador_matricula) {
 		$this->percentual_lucro = $percentual_lucro;
-		
-		$this->data_modificacao = date('Y-m-d H:i:s');	
+		$this->data_modificacao = date('Y-m-d H:i:s');
 		$this->administrador_matricula = $administrador_matricula;		
 	}
+
+
 
 	public function getPercentualLucro() {
 		return $this->percentual_lucro;

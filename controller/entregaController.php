@@ -1,18 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: kaue
+ * Date: 31/10/2017
+ * Time: 11:20
+ */
 
-
-function insereItemCesta(ItemCesta $item){
+function insereEntrega(Entrega $entrega) {
     try {
         $database = new Conexao();
         $db = $database->openConnection();
-        $stmt = $db->prepare("INSERT INTO item_cesta (id_cesta, id_produto, quantidade, 
-                                                    nome, valor) VALUES (?,?,?,?,?)");
+        $stmt = $db->prepare("INSERT INTO entrega(id_cesta, valor, data_entrega, 
+                                                    estado) VALUES (?,?,?,?)");
 
-        $stmt->bindValue(1, $item->getIdCesta());
-        $stmt->bindValue(2, $item->getIdProduto());
-        $stmt->bindValue(3, $item->getQuantidade());
-        $stmt->bindValue(4, $item->getNome());
-        $stmt->bindValue(5, $item->getValor());
+        $stmt->bindValue(1, $entrega->getIdCesta());
+        $stmt->bindValue(2, $entrega->getValor());
+        $stmt->bindValue(3, $entrega->getDataEntrega());
+        $stmt->bindValue(4, $entrega->getEstado());
 
         if($stmt->execute()){
             if($stmt->rowCount()>0){
@@ -28,33 +32,30 @@ function insereItemCesta(ItemCesta $item){
         echo($e->getMessage());
     }
     $db = $database->closeConnection();
-
-
-
-
 }
 
-
-
-function listaItensCesta($id_cesta){
-
+function buscaEstadoEntrega($id_cesta){
     try {
         $database = new Conexao();
         $db = $database->openConnection();
 
-        $stmt = $db->prepare("SELECT * FROM item_cesta WHERE id_cesta = ?");
+        $stmt = $db->prepare("SELECT * FROM entrega WHERE id_cesta = ?");
         $stmt->bindParam(1, $id_cesta);
 
         if($stmt->execute()){
-            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+
+            while($resultado = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 return $resultado;
             }
+
+        } else {
+            echo "Não foi possível exexutar a operação!";
         }
+
 
     } catch (PDOException $e) {
         echo "Problema com a conexão: " . $e->getMessage();
     }
 
-
-
+    $db = $database->closeConnection();
 }

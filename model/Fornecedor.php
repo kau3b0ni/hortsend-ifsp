@@ -1,61 +1,109 @@
 <?php
 
- class Fornecedor {
+ class Fornecedor
+ {
 
-	private $id;
-	private $razaosocial;
-	private $cnpj;
-	private $telefone_contato;
-	private $email;
-	private $login;	
+     private $id;
+     private $razao;
+     private $cnpj;
+     private $telefone;
+     private $usuario_id;
 
-	function __construct($razaosocial, $cnpj, $email, $telefone_contato) {
-		$this->razaosocial = $razaosocial;
-		$this->cnpj = $cnpj;
-		$this->email = $email;
-		$this->telefone_contato = $telefone_contato;				
-	}
+     /**
+      * Fornecedor constructor.
+      * @param $razao
+      * @param $cnpj
+      * @param $telefone
+      * @param $usuario_id
+      */
+     public function __construct($razao, $cnpj, $telefone, $usuario_id)
+     {
+         $this->razao = $razao;
+         $this->cnpj = $cnpj;
+         $this->telefone = $telefone;
+         $this->usuario_id = $usuario_id;
+     }
 
-	public function getId() {
-		return $this->id;
-	}
+     /**
+      * @return mixed
+      */
+     public function getId()
+     {
+         return $this->id;
+     }
 
-	public function setId($id) {	
-		$this->id = $id;
-	}
+     /**
+      * @param mixed $id
+      */
+     public function setId($id)
+     {
+         $this->id = $id;
+     }
 
-	public function getRazaoSocial() {
-		return $this->razaosocial;
-	}
+     /**
+      * @return mixed
+      */
+     public function getRazao()
+     {
+         return $this->razao;
+     }
 
-	public function setRazaoSocial($razaosocial) {
-		$this->razaosocial = $razaosocial;
-	}
+     /**
+      * @param mixed $razao
+      */
+     public function setRazao($razao)
+     {
+         $this->razao = $razao;
+     }
 
-	public function getCnpj() {
-		return $this->cnpj;
-	}
+     /**
+      * @return mixed
+      */
+     public function getCnpj()
+     {
+         return $this->cnpj;
+     }
 
-	public function setCnpj($cnpj) {
-		$this->cnpj = $cnpj;
-	}
+     /**
+      * @param mixed $cnpj
+      */
+     public function setCnpj($cnpj)
+     {
+         $this->cnpj = $cnpj;
+     }
 
-	public function getTelefoneContato() {
-		return $this->telefone_contato;
-	}
+     /**
+      * @return mixed
+      */
+     public function getTelefone()
+     {
+         return $this->telefone;
+     }
 
-	public function setTelefoneContato($telefone_contato) {
-		$this->telefone_contato= $telefone_contato;
-	}
+     /**
+      * @param mixed $telefone
+      */
+     public function setTelefone($telefone)
+     {
+         $this->telefone = $telefone;
+     }
 
-	public function getEmail() {
-		return $this->email;
-	}
+     /**
+      * @return mixed
+      */
+     public function getUsuarioId()
+     {
+         return $this->usuario_id;
+     }
 
-	public function setEmail($email) {
-		$this->email = $email;
-	}
+     /**
+      * @param mixed $usuario_id
+      */
+     public function setUsuarioId($usuario_id)
+     {
+         $this->usuario_id = $usuario_id;
+     }
 
-}
 
-?>
+
+ }

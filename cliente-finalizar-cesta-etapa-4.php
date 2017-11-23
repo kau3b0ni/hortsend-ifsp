@@ -65,7 +65,7 @@ $cesta = $_SESSION['cesta'];
                 <h2 class="h2-responsive">Produtos</h2>
                 <div class="row">
                     <?php
-                    $margem = 1.8;
+                    $margem = 1+verPercentual()->percentual_lucro/100;
                     $qtd_produtos = 0;
                     $itens = $_SESSION['itens'];
                     if(!empty($itens)){

@@ -1,7 +1,11 @@
 <?php
 require_once("controle-sessao.php");
 require_once("controller/produtoController.php");
+require_once("controller/enderecoController.php");
+require_once("controller/cestaController.php");
+require_once("controller/itemCestaController.php");
 require_once("controller/cooProdutoControler.php");
+require_once("controller/entregaController.php");
 require_once("config/conexao.php");
 require_once("config/conexao_cooperativa.php");
 if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
@@ -40,8 +44,7 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                         <ul class="nav nav-tabs pull-right">
                             <li class="active"><a href="#produtos" data-toggle="tab">Produtos</a></li>
                             <li><a href="#prod_cooperativa" data-toggle="tab">Produtos da Cooperativa</a></li>
-                            <li><a href="#fornecedores" data-toggle="tab">Fornecedores</a></li>
-                            <li><a href="#clientes" data-toggle="tab">Clientes</a></li>
+
                             <li><a href="#cestas" data-toggle="tab">Cestas</a></li>
                             <li><a href="#configuracoes" data-toggle="tab">Configuração</a></li>
                             <li><a href="#relatorios" data-toggle="tab">Relatórios</a></li>
@@ -53,24 +56,18 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                             </div>
                             <!-- /.tab-pane -->
 
-                            <div class="tab-pane active" id="prod_cooperativa">
+                            <div class="tab-pane" id="prod_cooperativa">
                                 <?php include "adm-produtos-cooperativa.php" ?>
                             </div>
 
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="fornecedores">
-                                fornecedores
-                            </div>
-                            <!-- /.tab-pane -->
-                            <div class="tab-pane" id="clientes">
-                                clientes
-                            </div>
                             <div class="tab-pane" id="cestas">
-                                cestas
+                                <?php include "adm-cestas.php" ?>
                             </div>
+
                             <div class="tab-pane" id="configuracoes">
                                 <?php include "adm-config.php" ?>
                             </div>
+
                             <div class="tab-pane" id="relatorios">
                                 relatorios
                             </div>

@@ -11,7 +11,7 @@
             <th style="width: 5%"></th>
         </tr>
         <?php
-        $margem_lucro = 1.8;
+        $margem = 1+verPercentual()->percentual_lucro/100;
         $produtos = listaProdutos();
         //print_r($produtos);
         foreach ($produtos as $produto) :
@@ -22,7 +22,7 @@
                 <td>0</td>
                 <td><?php echo $produto->unidade?></td>
                 <td><?php echo number_format($produto->preco_custo,2,",",".")?></td>
-                <td><?php echo number_format($produto->preco_custo * $margem_lucro,2,",",".")?></td>
+                <td><?php echo number_format($produto->preco_custo * $margem,2,",",".")?></td>
                 <td class="actions">
                     <form action="adm-produto-remover.php" method="post">
                         <input type="hidden"    name="produto_id"        value="<?php echo $produto->id_produto ?>">

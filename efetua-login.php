@@ -23,5 +23,7 @@ if(!empty($usuario)) {
         header("location:adm-dashboard.php");
     } else if($_SESSION['usuario_logado']['nivel_acesso'] == 2)
         header("location:cliente-painel.php");
+    else
+        header("location:fornecedor-painel.php");
 }
 

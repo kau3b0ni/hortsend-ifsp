@@ -1,5 +1,7 @@
 <?php
 require_once("controle-sessao.php");
+require_once("config/conexao_cooperativa.php");
+require_once ("controller/cooProdutoControler.php");
 include("head-para-formularios.php");
 
 //escolhe barra
@@ -8,11 +10,9 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
 }else{
     include("barra-navegacao-index.php");
 }
-$pc_id = $_POST['pc_id'];
-$pc_nome = $_POST['pc_nome'];
-$pc_unidade = $_POST['pc_unidade'];
-$pc_valor = $_POST['pc_valor'];
+$_POST['id_produto_fornecedor'];
 
+$coo = buscaProdutoCooperativa($_POST['id_produto_coo']);
 
 ?>
 
@@ -36,29 +36,24 @@ $pc_valor = $_POST['pc_valor'];
                 </div>
                 <!-- /.login-logo -->
                 <div class="login-box-body">
-                    <form action="adm-produto-adicionar.php" method="post" enctype="multipart/form-data">
+                    <form action="fornecedor-atualizar-estoque.php" method="post" enctype="multipart/form-data">
 
                         <div class="form-group has-feedback">
-                            <input type="text" class="form-control" disabled id="nome" value="<?php echo $pc_nome ?>">
-                            <input type="hidden" name="pc_id"   value="<?php echo $pc_id ?>">
-                            <input type="hidden" name="pc_nome" value="<?php echo $pc_nome ?>">
-                            <input type="hidden" name="pc_unidade" value="<?php echo $pc_unidade ?>">
-                            <input type="hidden" name="pc_valor" value="<?php echo $pc_valor ?>">
-                            <span class="glyphicon glyphicon-leaf form-control-feedback"></span>
+                            <input type="text" class="form-control" disabled id="nome" value="<?php echo $coo->nome ?>">
                         </div>
-                        <label for="nome">Preço de Custo</label>
-                        <div class="form-group has-feedback">
-                            <input type="text" class="form-control" id="valor" disabled value="<?php echo $pc_valor ?>">
-                            <span  form-control-feedback"></span>
-                        </div>
+
                         <label for="nome">Unidade</label>
                         <div class="form-group has-feedback">
-                            <input type="text" class="form-control" id="unidade" disabled value="<?php echo $pc_unidade ?>">
+                            <input type="text" class="form-control" id="unidade" disabled value="<?php echo $coo->unidade ?>">
+                            <input type="hidden" class="form-control" id="unidade" name="id_produto_fornecedor" value="<?php echo $_POST['id_produto_fornecedor']; ?>">
+
                             <span class="glyphicon glyphicons-coins form-control-feedback"></span>
                         </div>
-                        <label for="nome">Imagem</label>
+
+                        <label for="nome">Quantidade em Estoque</label>
                         <div class="form-group has-feedback">
-                            <input type="file" name="arquivo">
+                            <input type="number" class="form-control" id="quantidade_estoque" name="quantidade_estoque" required>
+                            <span class="glyphicon glyphicons-coins form-control-feedback"></span>
                         </div>
 
 

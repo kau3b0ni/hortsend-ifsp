@@ -134,3 +134,28 @@ function escreveEndereco($id){
 
 
 }
+
+
+
+function escreveEnderecoPainel($id){
+
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+
+        $stmt = $db->prepare("SELECT * FROM endereco WHERE id_endereco = ?");
+        $stmt->bindParam(1, $id);
+
+        if($stmt->execute()){
+            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+                return $resultado[0]->rua.", ".$resultado[0]->numero."<br>".$resultado[0]->bairro." - ".$resultado[0]->cep."<br>".$resultado[0]->cidade." - ".$resultado[0]->uf;
+            }
+        }
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+
+
+}

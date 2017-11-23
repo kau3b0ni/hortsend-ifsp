@@ -3,6 +3,7 @@ require_once("controle-sessao.php");
 require_once("controller/produtoController.php");
 require_once("controller/cooProdutoControler.php");
 require_once("controller/imagemController.php");
+require_once ("controller/percentualController.php");
 require_once("config/conexao.php");
 require_once("config/conexao_cooperativa.php");
 if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
@@ -52,7 +53,8 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                     <!-- Listagem de Produtos -->
                     <div class="row">
                         <?php
-                        $margem = 1.8;
+
+                        $margem = 1+verPercentual()->percentual_lucro/100;
                         $qtd_produtos = 0;
                         $produtos = listaProdutos();
                         foreach ($produtos as $produto) :
@@ -85,20 +87,18 @@ if(!empty($_SESSION['usuario_logado']['nivel_acesso'])){
                                                 | <?php echo $produto->unidade; ?></p>
                                             <form action="cesta-adiciona-item-session.php" method="post">
                                                 <?php if ($produto->unidade == "Kg") { ?>
-                                                    <select style="padding: 2%; width: 20%" name="quantidade">
-                                                        <option selected="selected">0</option>
-                                                        <option> 0,5</option>
-                                                        <option> 1</option>
-                                                        <option> 1,5</option>
+                                                    <select style="padding: 2%; width: 30%" name="quantidade">
+                                                        <option> 0.5</option>
+                                                        <option selected="selected"> 1</option>
+                                                        <option> 1.5</option>
                                                         <option> 2</option>
-                                                        <option> 2,5</option>
+                                                        <option> 2.5</option>
                                                         <option> 3</option>
                                                     </select>
 
                                                 <?php } else { ?>
-                                                    <select style="padding: 2%;" name="quantidade"">
-                                                    <option selected="selected"> 0</option>
-                                                    <option> 1</option>
+                                                    <select style="padding: 2%; width: 30%" name="quantidade"">
+                                                    <option selected="selected"> 1</option>
                                                     <option> 2</option>
                                                     <option> 3</option>
                                                     <option> 4</option>

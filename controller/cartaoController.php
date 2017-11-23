@@ -49,3 +49,36 @@ function buscaCartaoCliente($cliente_id){
     $db = $database->closeConnection();
 
 }
+
+function buscaCartao($cartao_id){
+
+    try {
+        $database = new Conexao();
+        $db = $database->openConnection();
+
+        $stmt = $db->prepare("SELECT * FROM cartao WHERE id_cliente = ?");
+        $stmt->bindParam(1, $cartao_id);
+
+        if($stmt->execute()){
+            while($resultado = $stmt->fetchAll(PDO::FETCH_OBJ)) {
+                return $resultado;
+            }
+        }
+
+    } catch (PDOException $e) {
+        echo "Problema com a conexão: " . $e->getMessage();
+    }
+
+    $db = $database->closeConnection();
+
+}
+
+
+function cartaoRequisicaoOperadora($cartao_id){
+    if(!empty(buscaCartao($cartao_id))){
+        return 0;
+    } else {
+        return 1;
+    }
+
+}
